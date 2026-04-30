@@ -339,19 +339,7 @@ main{padding-top:64px;}
 }
 .pi:hover .open-hint{opacity:1;transform:translateY(0);}
 /* Mobile: always show a small tap indicator */
-@media(hover:none){
-  .open-hint{
-    opacity:1!important;transform:translateY(0)!important;
-    bottom:12px;right:12px;
-    font-size:7px;padding:4px 8px;
-    border-color:rgba(155,0,255,.4);
-    color:rgba(155,0,255,.9);
-    background:rgba(6,4,14,.85);
-  }
-  /* Pulse animation on mobile hint */
-  .open-hint{animation:mobileHintPulse 2.5s ease-in-out infinite;}
-  @keyframes mobileHintPulse{0%,100%{border-color:rgba(155,0,255,.25);}50%{border-color:rgba(155,0,255,.7);}}
-}
+/* mobile hint handled in touch media query above */
 
 /* Purple glow pulse on hover — subtle */
 .pi::after{
@@ -544,24 +532,72 @@ footer{border-top:1px solid var(--border);padding:12px 16px;display:flex;justify
   .about-left{border-right:none;border-bottom:1px solid var(--border);}
   .contact-wrap{grid-template-columns:1fr;}
   .contact-left{border-right:none;border-bottom:1px solid var(--border);}
+  /* 2-col grid on tablet */
   .proj-grid{grid-template-columns:1fr 1fr;}
-  .pi--hero,.pi--a,.pi--b,.pi--c,.pi--d,.pi--e,.pi--f,.pi--g{grid-column:span 1;}
   .pi--hero{grid-column:span 2;}
+  .pi--a,.pi--b,.pi--c,.pi--d,.pi--e,.pi--f,.pi--g{grid-column:span 1;}
   .pi--hero .pi-bot{position:relative;width:100%;padding:16px 20px 20px;}
   .pi--hero .pi-title{font-size:clamp(22px,5vw,32px);}
   .pi--hero .pi-imgwrap{height:260px;}
   .pi--hero .pi-overlay{background:linear-gradient(to top,rgba(10,10,10,.97) 0%,rgba(10,10,10,.1) 55%,transparent 100%);}
   .sb .sb-item:nth-child(3){display:none;}
+  /* Tablet image heights */
+  .pi--a .pi-imgwrap,.pi--b .pi-imgwrap{height:200px;}
+  .pi--c .pi-imgwrap,.pi--d .pi-imgwrap,.pi--e .pi-imgwrap{height:170px;}
+  .pi--f .pi-imgwrap,.pi--g .pi-imgwrap{height:185px;}
 }
+
 @media(max-width:560px){
   .nav-links a:not(:last-child){display:none;}
   .nav-burger{display:block;}
-  .proj-grid{grid-template-columns:1fr;}
+  /* Single column on mobile — every card full width */
+  .proj-grid{grid-template-columns:1fr;border-left:none;}
   .pi--hero,.pi--a,.pi--b,.pi--c,.pi--d,.pi--e,.pi--f,.pi--g{grid-column:span 1;}
-  .pi--hero .pi-imgwrap{height:220px;}
-  .hud-grid{grid-template-columns:1fr 1fr;}
-  .m-year{display:none;}
+  /* Generous image heights on mobile so they fill the card properly */
+  .pi--hero .pi-imgwrap{height:52vw;}
+  .pi--a .pi-imgwrap,.pi--b .pi-imgwrap{height:56vw;}
+  .pi--c .pi-imgwrap,.pi--d .pi-imgwrap,.pi--e .pi-imgwrap,
+  .pi--f .pi-imgwrap,.pi--g .pi-imgwrap{height:52vw;}
+  /* Hero card text back to normal flow on mobile */
+  .pi--hero .pi-bot{position:relative;width:100%;padding:14px 16px 18px;}
+  .pi--hero .pi-title{font-size:clamp(20px,6vw,28px);}
+  .pi--hero .pi-overlay{background:linear-gradient(to top,rgba(6,4,14,.98) 0%,rgba(6,4,14,.5) 45%,transparent 100%);}
+  /* Images always vivid on mobile */
+  .pi .pi-imgwrap img{
+    filter:brightness(.82) contrast(1.15) saturate(.85)!important;
+  }
+  /* Project number smaller on mobile */
+  .pi-num{font-size:clamp(40px,10vw,64px)!important;}
+  /* Bigger tap targets */
+  .pi-bot{padding:14px 16px 52px;}
+  /* Open hint always visible on mobile */
+  .open-hint{
+    opacity:1!important;transform:translateY(0)!important;
+    font-size:8px;padding:6px 12px;
+    border-color:rgba(232,224,0,.4);
+    color:var(--yellow);
+    bottom:14px;right:14px;
+  }
+  /* Status bar minimal on mobile */
   .sb .sb-item:nth-child(2),.sb .sb-item:nth-child(3){display:none;}
+  #sb-rpm,#sb-gear{display:none;}
+  /* HUD 2x2 grid on mobile */
+  .hud-grid{grid-template-columns:1fr 1fr;}
+  .hud-val{font-size:clamp(28px,8vw,44px)!important;}
+  .hud-sub{font-size:8px!important;}
+  /* Modal improvements on mobile */
+  .m-year{display:none;}
+  .modal-bg{padding:56px 0 0;}
+  .modal{border-radius:0;}
+  .m-head{flex-direction:column;align-items:flex-start;gap:8px;}
+  .m-title{font-size:clamp(22px,7vw,36px);}
+  /* Footer single column */
+  footer{grid-template-columns:1fr;text-align:center;gap:12px;}
+  .footer-right{text-align:center;}
+  /* Ticker smaller text */
+  .ti{font-size:7px;padding:0 16px;}
+  .tsk{min-width:120px;padding:0 16px;}
+  .tsk-name{font-size:6px;}
 }
 /* ── QUAL CELL ── */
 .hud-cell--qual{cursor:pointer;transition:background .2s;overflow:hidden;}
@@ -668,27 +704,33 @@ footer{border-top:1px solid var(--border);padding:12px 16px;display:flex;justify
 .nav-drawer a:hover{color:var(--yellow);}
 
 /* ══ CUSTOM CURSOR ══ */
-*{cursor:none!important;}
-#cursor{
-  position:fixed;z-index:99999;pointer-events:none;
-  top:0;left:0;
-  transform:translate(-50%,-50%);
-  transition:opacity .3s;
+/* Custom cursor — desktop only */
+@media(hover:hover) and (pointer:fine){
+  *{cursor:none!important;}
+  #cursor{
+    position:fixed;z-index:99999;pointer-events:none;
+    top:0;left:0;
+    transform:translate(-50%,-50%);
+    transition:opacity .3s;
+  }
+  #cursor svg{display:block;}
+  #cursor-trail{
+    position:fixed;z-index:99998;pointer-events:none;
+    top:0;left:0;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--purple);
+    transform:translate(-50%,-50%);
+    opacity:0.5;
+    transition:transform .12s ease,opacity .3s;
+    filter:blur(1px);
+  }
+  .cursor-grow #cursor{transform:translate(-50%,-50%) scale(1.5);}
 }
-#cursor svg{display:block;}
-#cursor-trail{
-  position:fixed;z-index:99998;pointer-events:none;
-  top:0;left:0;
-  width:6px;height:6px;
-  border-radius:50%;
-  background:var(--purple);
-  transform:translate(-50%,-50%);
-  opacity:0.5;
-  transition:transform .12s ease,opacity .3s;
-  filter:blur(1px);
+/* Hide cursor elements on touch */
+@media(hover:none),(pointer:coarse){
+  #cursor,#cursor-trail{display:none!important;}
 }
-/* cursor grows on hover over clickable */
-.cursor-grow #cursor{transform:translate(-50%,-50%) scale(1.5);}
 
 /* ══ BOOT SEQUENCE ══ */
 #boot{
@@ -888,30 +930,35 @@ footer{
 .footer-divider{color:var(--border);}
 
 
-/* ── MOBILE CARD ENHANCEMENTS ── */
+/* ── TOUCH DEVICE ENHANCEMENTS ── */
 @media(hover:none){
-  /* On touch — images vivid, TV effect stays */
+  /* Vivid images on touch — no hover needed */
   .pi:not(.pi--hero) .pi-imgwrap img{
-    filter:brightness(.85) contrast(1.12) saturate(.85) !important;
+    filter:brightness(.82) contrast(1.15) saturate(.85)!important;
   }
-  /* Stronger bottom gradient so title pops */
+  /* Stronger gradient so title always readable */
   .pi-overlay{
-    background:
-      linear-gradient(to top,
-        rgba(6,4,14,1) 0%,
-        rgba(6,4,14,.82) 25%,
-        rgba(6,4,14,.3) 55%,
-        transparent 100%
-      ) !important;
+    background:linear-gradient(to top,
+      rgba(6,4,14,.98) 0%,
+      rgba(6,4,14,.75) 25%,
+      rgba(6,4,14,.2) 58%,
+      transparent 100%
+    )!important;
   }
-  /* Bigger title on mobile for legibility */
-  .pi-title{font-size:clamp(16px,5vw,22px)!important;}
-  .pi-desc{font-size:9px!important;}
-  /* Show project number prominently on mobile */
-  .pi-num{
-    color:rgba(155,0,255,0.15)!important;
-    font-size:clamp(44px,12vw,72px)!important;
+  /* Slightly bigger text for touch */
+  .pi-title{font-size:clamp(15px,4.5vw,22px)!important;}
+  /* Open hint always visible */
+  .open-hint{
+    opacity:1!important;transform:translateY(0)!important;
+    animation:mobileHintPulse 2.5s ease-in-out infinite;
   }
+  @keyframes mobileHintPulse{
+    0%,100%{border-color:rgba(232,224,0,.2);}
+    50%{border-color:rgba(232,224,0,.6);}
+  }
+  /* TV effect slightly reduced on touch for clarity */
+  .pi-imgwrap::before{opacity:0.4!important;}
+  .pi-imgwrap::after{opacity:0.5!important;}
 }
 </style>
 </head>
@@ -1773,6 +1820,8 @@ window.addEventListener('load',()=>{
 
 /* ══ CURSOR ══ */
 (function(){
+  // Don't run on touch devices
+  if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
   const cur=document.getElementById('cursor');
   const trail=document.getElementById('cursor-trail');
   if(!cur||!trail)return;
