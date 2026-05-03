@@ -10,7 +10,7 @@
 :root{
   --bg:#06040e;--bg2:#0b0818;--bg3:#110e20;
   --yellow:#e8e000;--purple:#9b00ff;--red:#d42b2b;--teal:#00c8a0;
-  --white:#e8e4dc;--muted:#484848;--border:#1a1428;
+  --white:#e8e4dc;--muted:#5a5270;--border:#1a1428;
   --mono:'IBM Plex Mono',monospace;--display:'Bebas Neue',sans-serif;--tech:'Space Mono',monospace;
 }
 
@@ -109,16 +109,16 @@ main{padding-top:64px;}
 .hero::after{bottom:20px;right:20px;border-bottom:1px solid var(--yellow);border-right:1px solid var(--yellow);}
 
 .hero-left{grid-column:1;grid-row:1;padding:clamp(24px,4vw,48px);border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;gap:0;}
-.hero-eyebrow{font-size:8px;letter-spacing:0.4em;text-transform:uppercase;color:var(--yellow);display:flex;align-items:center;gap:10px;font-family:var(--tech);margin-bottom:20px;opacity:0;animation:fadeUp .6s ease forwards .2s;}
+.hero-eyebrow{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--yellow);display:flex;align-items:center;gap:10px;font-family:var(--tech);margin-bottom:20px;opacity:0;animation:fadeUp .6s ease forwards .2s;}
 .hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--yellow);}
 .hero-name{font-family:var(--display);font-size:clamp(52px,9vw,120px);line-height:0.86;letter-spacing:0.02em;margin-bottom:20px;opacity:0;animation:fadeUp .6s ease forwards .35s;}
 .hero-name .line2{color:var(--yellow);}
 .hero-degrees{display:flex;flex-direction:column;gap:6px;margin-bottom:24px;opacity:0;animation:fadeUp .6s ease forwards .5s;}
-.deg-row{display:flex;align-items:center;gap:10px;font-family:var(--tech);font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);}
+.deg-row{display:flex;align-items:center;gap:10px;font-family:var(--tech);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(200,190,220,.85);}
 .deg-row .deg-badge{background:var(--yellow);color:#000;font-weight:700;padding:2px 6px;font-size:7px;letter-spacing:0.15em;}
 .deg-row .deg-badge.purple{background:var(--purple);color:#fff;}
 .deg-row .deg-badge.teal{background:var(--teal);color:#000;}
-.hero-disc{font-family:var(--tech);font-size:9px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:32px;opacity:0;animation:fadeUp .6s ease forwards .6s;}
+.hero-disc{font-family:var(--tech);font-size:10px;color:rgba(180,165,210,.8);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:32px;opacity:0;animation:fadeUp .6s ease forwards .6s;}
 .hero-disc span{color:var(--yellow);}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease forwards .75s;}
 
@@ -135,15 +135,15 @@ main{padding-top:64px;}
 .hud-cell{border-left:1px solid var(--border);border-bottom:1px solid var(--border);padding:clamp(14px,2vw,24px);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;cursor:default;}
 .hud-cell:nth-child(3),.hud-cell:nth-child(4){border-bottom:none;}
 .hud-ghost{font-family:var(--display);font-size:clamp(60px,8vw,100px);line-height:1;color:rgba(155,0,255,0.08);position:absolute;top:6px;right:10px;pointer-events:none;letter-spacing:-0.02em;}
-.hud-lbl{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(100,80,150,.9);margin-bottom:8px;font-family:var(--tech);}
+.hud-lbl{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(180,160,220,.85);margin-bottom:8px;font-family:var(--tech);}
 .hud-val{font-family:var(--display);font-size:clamp(36px,5vw,64px);letter-spacing:0.06em;line-height:1;}
-.hud-sub{font-size:10px;color:rgba(232,228,220,.75);margin-top:6px;font-family:var(--tech);line-height:1.65;}
+.hud-sub{font-size:10px;color:rgba(210,200,230,.85);margin-top:6px;font-family:var(--tech);line-height:1.65;}
 .hud-bar{position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--border);}
 .hud-bar-fill{height:100%;width:0%;transition:width 1.2s cubic-bezier(.25,.46,.45,.94);}
 .hud-cell:hover .hud-bar-fill{filter:brightness(1.4);}
 
 .hero-meta-row{grid-column:1;grid-row:2;border-top:1px solid var(--border);border-right:1px solid var(--border);padding:12px clamp(16px,3vw,40px);display:flex;gap:clamp(12px,3vw,32px);align-items:center;flex-wrap:wrap;}
-.meta-chip{font-size:7px;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;font-family:var(--tech);display:flex;align-items:center;gap:6px;}
+.meta-chip{font-size:9px;letter-spacing:0.15em;color:rgba(180,165,210,.8);text-transform:uppercase;font-family:var(--tech);display:flex;align-items:center;gap:6px;}
 .meta-chip::before{content:'■';color:var(--yellow);font-size:6px;}
 
 /* ── TICKERS ── */
@@ -199,15 +199,15 @@ main{padding-top:64px;}
 /* ── LARGE SCREEN CONTAINERS ── */
 .edu-section,.about-wrap,.contact-wrap,.sec-header{max-width:1800px;margin-left:auto;margin-right:auto;}
 .sec-header{padding:20px 20px 14px;display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--border);}
-.sec-label{font-family:var(--display);font-size:10px;letter-spacing:0.35em;color:var(--yellow);text-transform:uppercase;}
+.sec-label{font-family:var(--display);font-size:11px;letter-spacing:0.28em;color:var(--yellow);text-transform:uppercase;}
 .sec-rule{flex:1;height:1px;background:var(--border);}
-.sec-count{font-size:8px;color:var(--muted);letter-spacing:0.2em;font-family:var(--tech);}
+.sec-count{font-size:9px;color:rgba(175,160,205,.8);letter-spacing:0.15em;font-family:var(--tech);}
 
 /* ── SECTION LABEL ── */
 .sec-header{padding:20px 20px 14px;display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--border);}
-.sec-label{font-family:var(--display);font-size:10px;letter-spacing:0.35em;color:var(--yellow);text-transform:uppercase;}
+.sec-label{font-family:var(--display);font-size:11px;letter-spacing:0.28em;color:var(--yellow);text-transform:uppercase;}
 .sec-rule{flex:1;height:1px;background:var(--border);}
-.sec-count{font-size:8px;color:var(--muted);letter-spacing:0.2em;font-family:var(--tech);}
+.sec-count{font-size:9px;color:rgba(175,160,205,.8);letter-spacing:0.15em;font-family:var(--tech);}
 .proj-outer{max-width:1800px;margin:0 auto;}
 .proj-grid{display:grid;grid-template-columns:repeat(12,1fr);border-left:1px solid var(--border);}
 
@@ -303,8 +303,8 @@ main{padding-top:64px;}
 .pi:hover .pi-num{color:rgba(232,224,0,0.06);}
 
 .pi-top{padding:16px 20px 10px;display:flex;justify-content:space-between;align-items:center;z-index:2;position:relative;}
-.pi-code{font-size:8px;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;font-family:var(--tech);}
-.pi-yr{color:var(--yellow);}
+.pi-code{font-size:9px;letter-spacing:0.22em;color:rgba(160,145,190,.8);text-transform:uppercase;font-family:var(--tech);}
+.pi-yr{color:var(--yellow);opacity:.9;}
 
 .pi-bot{padding:16px 20px 22px;position:relative;z-index:2;}
 .pi-title{
@@ -314,7 +314,7 @@ main{padding-top:64px;}
   color:var(--white);margin-bottom:8px;
   transition:color .25s;
 }
-.pi-desc{font-size:10px;color:rgba(160,140,200,.7);line-height:1.75;margin-bottom:12px;font-family:var(--mono);}
+.pi-desc{font-size:10px;color:rgba(200,185,220,.75);line-height:1.75;margin-bottom:12px;font-family:var(--mono);}
 .pi-tags{display:flex;gap:5px;flex-wrap:wrap;}
 .tag{
   font-size:7px;letter-spacing:0.18em;text-transform:uppercase;
@@ -362,8 +362,8 @@ main{padding-top:64px;}
 .edu-badge.p{background:var(--purple);color:#fff;}
 .edu-badge.t{background:var(--teal);color:#000;}
 .edu-degree{font-family:var(--display);font-size:clamp(20px,2.5vw,28px);line-height:1;letter-spacing:0.06em;color:var(--white);margin-bottom:8px;}
-.edu-school{font-size:9px;color:var(--yellow);font-family:var(--tech);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;}
-.edu-detail{font-size:9px;color:var(--muted);line-height:1.7;font-family:var(--mono);}
+.edu-school{font-size:10px;color:var(--yellow);font-family:var(--tech);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;opacity:.9;}
+.edu-detail{font-size:10px;color:rgba(200,185,220,.75);line-height:1.75;font-family:var(--mono);}
 .edu-year{position:absolute;bottom:clamp(16px,2vw,28px);right:clamp(16px,2vw,28px);font-family:var(--display);font-size:14px;color:var(--muted);letter-spacing:0.1em;}
 /* animated accent line on edu card */
 .edu-card::after{content:'';position:absolute;top:0;left:0;width:2px;height:0%;background:var(--yellow);transition:height .8s cubic-bezier(.25,.46,.45,.94);}
@@ -375,7 +375,7 @@ main{padding-top:64px;}
 .about-wrap{border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;}
 .about-left{padding:clamp(24px,4vw,48px);border-right:1px solid var(--border);}
 .about-right{padding:clamp(24px,4vw,48px);}
-.s-code{font-size:8px;letter-spacing:0.35em;color:var(--yellow);text-transform:uppercase;margin-bottom:20px;font-family:var(--tech);display:flex;align-items:center;gap:10px;}
+.s-code{font-size:9px;letter-spacing:0.28em;color:var(--yellow);text-transform:uppercase;margin-bottom:20px;font-family:var(--tech);display:flex;align-items:center;gap:10px;}
 .s-code::before{content:'';width:14px;height:1px;background:var(--yellow);}
 .s-h{font-family:var(--display);font-size:clamp(32px,5vw,60px);line-height:.9;letter-spacing:.04em;margin-bottom:24px;color:var(--white);}
 .about-body p{font-size:10px;color:rgba(232,228,220,.55);line-height:2;margin-bottom:14px;font-family:var(--mono);}
@@ -385,8 +385,8 @@ main{padding-top:64px;}
 .sk-grid{display:flex;flex-direction:column;gap:16px;}
 .sk-row{display:flex;flex-direction:column;gap:5px;}
 .sk-top{display:flex;justify-content:space-between;align-items:center;}
-.sk-name{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--white);font-family:var(--tech);}
-.sk-lv{font-size:8px;color:var(--muted);letter-spacing:0.1em;font-family:var(--tech);}
+.sk-name{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(225,215,240,.95);font-family:var(--tech);}
+.sk-lv{font-size:8px;color:rgba(170,155,200,.8);letter-spacing:0.1em;font-family:var(--tech);}
 .sk-track{height:1px;background:var(--border);position:relative;}
 .sk-fill{height:100%;width:0%;transition:width 1.4s cubic-bezier(.25,.46,.45,.94);position:relative;}
 .sk-fill::after{content:'';position:absolute;right:-1px;top:-3px;width:2px;height:7px;background:inherit;}
@@ -394,7 +394,7 @@ main{padding-top:64px;}
 
 /* ── CERTS ── */
 .cert-grid{margin-top:28px;}
-.cert-row{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-bottom:1px solid var(--border);font-size:8px;font-family:var(--tech);letter-spacing:0.1em;color:var(--muted);cursor:default;transition:all .15s;}
+.cert-row{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid var(--border);font-size:9px;font-family:var(--tech);letter-spacing:0.08em;color:rgba(185,170,215,.85);cursor:default;transition:all .15s;}
 .cert-row:first-child{border-top:1px solid var(--border);}
 .cert-row:hover{background:rgba(232,224,0,.03);color:var(--white);}
 .cert-row span{color:var(--yellow);}
@@ -408,7 +408,7 @@ main{padding-top:64px;}
 .c-email:hover{opacity:.7;}
 .c-actions{display:flex;gap:10px;flex-wrap:wrap;}
 .contact-right{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:0;}
-.c-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);font-size:9px;font-family:var(--tech);letter-spacing:.1em;color:var(--muted);transition:color .15s;}
+.c-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--border);font-size:10px;font-family:var(--tech);letter-spacing:.08em;color:rgba(180,165,210,.85);transition:color .15s;}
 .c-row:first-child{border-top:1px solid var(--border);}
 .c-row:hover{color:var(--white);}
 .c-row span{color:var(--yellow);}
@@ -967,7 +967,7 @@ footer{
 <!-- STATUS BAR -->
 <div class="sb">
   <div class="sb-item">T-NEJABAT</div>
-  <div class="sb-item">MA Automotive &amp; Transport Design</div>
+  <div class="sb-item">CMF · Material Artist · MA Automotive Design</div>
   <div class="sb-item" id="sb-speed">SPD: 0 km/h</div>
   <div class="sb-right">
     <div class="sb-item" id="sb-rpm">RPM: <span id="rpmVal">0000</span></div>
@@ -999,20 +999,19 @@ footer{
 
 <!-- CURSOR -->
 <div id="cursor">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Marathon-style crosshair: outer square brackets + center diamond -->
+  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- Top-left bracket -->
-    <path d="M2 8 L2 2 L8 2" stroke="#e8e000" stroke-width="1.5" stroke-linecap="square"/>
+    <path d="M3 12 L3 3 L12 3" stroke="#e8e000" stroke-width="2" stroke-linecap="square"/>
     <!-- Top-right bracket -->
-    <path d="M16 2 L22 2 L22 8" stroke="#e8e000" stroke-width="1.5" stroke-linecap="square"/>
+    <path d="M24 3 L33 3 L33 12" stroke="#e8e000" stroke-width="2" stroke-linecap="square"/>
     <!-- Bottom-left bracket -->
-    <path d="M2 16 L2 22 L8 22" stroke="#e8e000" stroke-width="1.5" stroke-linecap="square"/>
+    <path d="M3 24 L3 33 L12 33" stroke="#e8e000" stroke-width="2" stroke-linecap="square"/>
     <!-- Bottom-right bracket -->
-    <path d="M16 22 L22 22 L22 16" stroke="#e8e000" stroke-width="1.5" stroke-linecap="square"/>
+    <path d="M24 33 L33 33 L33 24" stroke="#e8e000" stroke-width="2" stroke-linecap="square"/>
     <!-- Center diamond -->
-    <path d="M12 9 L15 12 L12 15 L9 12 Z" stroke="#9b00ff" stroke-width="1" fill="rgba(155,0,255,0.3)"/>
+    <path d="M18 12 L24 18 L18 24 L12 18 Z" stroke="#9b00ff" stroke-width="1.5" fill="rgba(155,0,255,0.2)"/>
     <!-- Center dot -->
-    <circle cx="12" cy="12" r="1.2" fill="#e8e000"/>
+    <circle cx="18" cy="18" r="2" fill="#e8e000"/>
   </svg>
 </div>
 <div id="cursor-trail"></div>
@@ -1047,7 +1046,7 @@ footer{
   <div class="hero-grid-bg"></div>
 
   <div class="hero-left">
-    <div class="hero-eyebrow">MA Automotive &amp; Transport · Coventry University</div>
+    <div class="hero-eyebrow">CMF Designer · Material Artist · Automotive &amp; Transport</div>
     <h1 class="hero-name">
       <span class="glitch glitch-flash" data-text="TAHA">TAHA</span><br>
       <span class="glitch glitch-flash line2" data-text="NEJABAT">NEJABAT</span>
@@ -1057,7 +1056,7 @@ footer{
       <div class="deg-row"><span class="deg-badge purple">BSc</span>Visual Communication — Apadana University, Shiraz</div>
       <div class="deg-row"><span class="deg-badge teal">AAD</span>Architecture — Associate Degree</div>
     </div>
-    <div class="hero-disc">Automotive <span>/</span> Transport <span>/</span> UX<span>/</span>UI <span>/</span> Blender <span>/</span> Alias <span>/</span> Gravity Sketch</div>
+    <div class="hero-disc">CMF Design <span>/</span> Material Art <span>/</span> Automotive <span>/</span> Transport <span>/</span> 3D Visualisation</div>
     <div class="hero-btns">
       <a href="#projects" class="btn-y"><span>View Projects →</span></a>
       <a href="#about" class="btn-o">About Me</a>
@@ -1074,11 +1073,11 @@ footer{
         <div class="hud-lbl">Qualifications</div>
         <!-- default view — big, prominent -->
         <div class="qual-default">
-          <div class="hud-val" style="font-family:var(--display);font-size:clamp(20px,3vw,32px);letter-spacing:.06em;line-height:1;color:var(--yellow);">MA</div>
-          <div style="margin-top:6px;">
-            <div style="font-family:var(--display);font-size:clamp(13px,1.8vw,17px);letter-spacing:.06em;color:var(--white);line-height:1.1;">Automotive &amp; Transport<br>Design</div>
-            <div style="font-size:8px;font-family:var(--tech);color:var(--yellow);letter-spacing:.1em;margin-top:4px;opacity:.85;">Coventry University, UK</div>
-            <div style="font-size:7px;font-family:var(--tech);color:var(--muted);letter-spacing:.12em;margin-top:2px;">2023 — 2025</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5.5vw,72px);letter-spacing:.04em;line-height:1;color:var(--yellow);">MA</div>
+          <div style="margin-top:10px;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,2.4vw,28px);letter-spacing:.05em;color:var(--white);line-height:1.05;">Automotive &amp; Transport Design</div>
+            <div style="font-size:11px;font-family:'Space Mono',monospace;color:var(--yellow);letter-spacing:.08em;margin-top:6px;opacity:.9;">Coventry University, UK</div>
+            <div style="font-size:10px;font-family:'Space Mono',monospace;color:rgba(180,165,210,.8);letter-spacing:.1em;margin-top:3px;">2023 — 2025</div>
           </div>
         </div>
         <!-- hover expanded -->
@@ -1131,7 +1130,7 @@ footer{
         <svg style="position:absolute;bottom:28px;left:14px;opacity:.12" width="48" height="48" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="24" stroke="#d42b2b" stroke-width=".5"/><circle cx="30" cy="30" r="14" stroke="#d42b2b" stroke-width=".5"/><circle cx="30" cy="30" r="4" stroke="#d42b2b" stroke-width=".5"/><line x1="30" y1="6" x2="30" y2="54" stroke="#d42b2b" stroke-width=".5"/><line x1="6" y1="30" x2="54" y2="30" stroke="#d42b2b" stroke-width=".5"/></svg>
         <div class="hud-lbl">Design experience</div>
         <div class="hud-val ar">6+</div>
-        <div class="hud-sub">Years across automotive,<br>transport &amp; UX/UI design</div>
+        <div class="hud-sub">CMF · Material Art · 3D Vis<br>Automotive &amp; Architecture</div>
         <div class="hud-bar"><div class="hud-bar-fill fr" data-w="80"></div></div>
       </div>
       <div class="hud-cell">
@@ -1155,8 +1154,8 @@ footer{
 <!-- TICKER 1 — tools scrolling right -->
 <div class="ticker">
   <div class="ticker-track">
-    <div class="ti"><span class="ta">//</span>Blender Expert</div><div class="ti"><span class="ta">—</span>Gravity Sketch</div><div class="ti"><span class="ta">—</span>Autodesk Alias</div><div class="ti"><span class="ta">—</span>Vizcom AI</div><div class="ti"><span class="ta">—</span>Rhino 3D</div><div class="ti"><span class="ta">—</span>V-Ray</div><div class="ti"><span class="ta">—</span>Twinmotion</div><div class="ti"><span class="ta">—</span>Python</div><div class="ti"><span class="ta">—</span>Figma</div><div class="ti"><span class="ta">—</span>Adobe Suite</div><div class="ti"><span class="ta">—</span>Premiere Pro</div><div class="ti"><span class="ta">—</span>AI Workflows</div>
-    <div class="ti"><span class="ta">//</span>Blender Expert</div><div class="ti"><span class="ta">—</span>Gravity Sketch</div><div class="ti"><span class="ta">—</span>Autodesk Alias</div><div class="ti"><span class="ta">—</span>Vizcom AI</div><div class="ti"><span class="ta">—</span>Rhino 3D</div><div class="ti"><span class="ta">—</span>V-Ray</div><div class="ti"><span class="ta">—</span>Twinmotion</div><div class="ti"><span class="ta">—</span>Python</div><div class="ti"><span class="ta">—</span>Figma</div><div class="ti"><span class="ta">—</span>Adobe Suite</div><div class="ti"><span class="ta">—</span>Premiere Pro</div><div class="ti"><span class="ta">—</span>AI Workflows</div>
+    <div class="ti"><span class="ta">//</span>CMF Designer</div><div class="ti"><span class="ta">—</span>Material Artist</div><div class="ti"><span class="ta">—</span>Substance 3D</div><div class="ti"><span class="ta">—</span>PBR Workflows</div><div class="ti"><span class="ta">—</span>V-Ray</div><div class="ti"><span class="ta">—</span>Blender Expert</div><div class="ti"><span class="ta">—</span>Gravity Sketch</div><div class="ti"><span class="ta">—</span>Autodesk Alias</div><div class="ti"><span class="ta">—</span>Vizcom AI</div><div class="ti"><span class="ta">—</span>Twinmotion</div><div class="ti"><span class="ta">—</span>VRED</div><div class="ti"><span class="ta">—</span>Material Scanning</div>
+    <div class="ti"><span class="ta">//</span>CMF Designer</div><div class="ti"><span class="ta">—</span>Material Artist</div><div class="ti"><span class="ta">—</span>Substance 3D</div><div class="ti"><span class="ta">—</span>PBR Workflows</div><div class="ti"><span class="ta">—</span>V-Ray</div><div class="ti"><span class="ta">—</span>Blender Expert</div><div class="ti"><span class="ta">—</span>Gravity Sketch</div><div class="ti"><span class="ta">—</span>Autodesk Alias</div><div class="ti"><span class="ta">—</span>Vizcom AI</div><div class="ti"><span class="ta">—</span>Twinmotion</div><div class="ti"><span class="ta">—</span>VRED</div><div class="ti"><span class="ta">—</span>Material Scanning</div>
   </div>
 </div>
 
@@ -1260,18 +1259,18 @@ footer{
 <!-- REVERSE TICKER — disciplines -->
 <div class="ticker ticker-reverse">
   <div class="ticker-track" style="animation-direction:reverse;animation-duration:20s;">
-    <div class="ti" style="color:var(--purple);border-color:var(--border)"><span class="ta" style="color:var(--purple)">◆</span>Automotive Design</div>
+    <div class="ti" style="color:var(--purple)"><span class="ta" style="color:var(--purple)">◆</span>CMF Design</div>
+    <div class="ti"><span class="ta">◆</span>Material Art</div>
+    <div class="ti" style="color:var(--teal)"><span class="ta" style="color:var(--teal)">◆</span>PBR Workflows</div>
+    <div class="ti"><span class="ta">◆</span>Automotive Design</div>
+    <div class="ti" style="color:var(--purple)"><span class="ta" style="color:var(--purple)">◆</span>Surface Development</div>
+    <div class="ti"><span class="ta">◆</span>Colour Strategy</div>
+    <div class="ti" style="color:var(--teal)"><span class="ta" style="color:var(--teal)">◆</span>Material Scanning</div>
     <div class="ti"><span class="ta">◆</span>Transport Futures</div>
-    <div class="ti" style="color:var(--teal);border-color:var(--border)"><span class="ta" style="color:var(--teal)">◆</span>UX / UI</div>
-    <div class="ti"><span class="ta">◆</span>3D Visualisation</div>
-    <div class="ti" style="color:var(--purple);border-color:var(--border)"><span class="ta" style="color:var(--purple)">◆</span>Inclusive Design</div>
-    <div class="ti"><span class="ta">◆</span>CMF Strategy</div>
-    <div class="ti" style="color:var(--teal);border-color:var(--border)"><span class="ta" style="color:var(--teal)">◆</span>Concept Development</div>
-    <div class="ti"><span class="ta">◆</span>Future Mobility</div>
-    <div class="ti" style="color:var(--purple);border-color:var(--border)"><span class="ta" style="color:var(--purple)">◆</span>Brand Identity</div>
-    <div class="ti"><span class="ta">◆</span>User Research</div>
-    <div class="ti" style="color:var(--teal)"><span class="ta" style="color:var(--teal)">◆</span>AI Workflows</div>
-    <div class="ti"><span class="ta">◆</span>Prototype + Clay</div>
+    <div class="ti" style="color:var(--purple)"><span class="ta" style="color:var(--purple)">◆</span>Finish Selection</div>
+    <div class="ti"><span class="ta">◆</span>Photoreal Rendering</div>
+    <div class="ti" style="color:var(--teal)"><span class="ta" style="color:var(--teal)">◆</span>Trend Research</div>
+    <div class="ti"><span class="ta">◆</span>Concept Development</div>
     <div class="ti" style="color:var(--purple)"><span class="ta" style="color:var(--purple)">◆</span>Automotive Design</div>
     <div class="ti"><span class="ta">◆</span>Transport Futures</div>
     <div class="ti" style="color:var(--teal)"><span class="ta" style="color:var(--teal)">◆</span>UX / UI</div>
@@ -1328,6 +1327,11 @@ footer{
 <!-- TICKER 2 — SKILL BARS (between Education and About) -->
 <div class="ticker ticker-skills">
   <div class="ticker-track">
+    <div class="tsk"><span class="tsk-name">Substance Designer</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fp" style="--w:88%;width:88%"></div></div><span class="tsk-level" style="color:var(--purple)">88%</span></div>
+    <div class="tsk"><span class="tsk-name">Substance Painter</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fp" style="--w:85%;width:85%"></div></div><span class="tsk-level" style="color:var(--purple)">85%</span></div>
+    <div class="tsk"><span class="tsk-name">PBR Materials</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fy" style="--w:92%;width:92%"></div></div><span class="tsk-level" style="color:var(--yellow)">92%</span></div>
+    <div class="tsk"><span class="tsk-name">CMF Strategy</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fy" style="--w:88%;width:88%"></div></div><span class="tsk-level" style="color:var(--yellow)">88%</span></div>
+    <div class="tsk"><span class="tsk-name">Material Scanning</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fp" style="--w:85%;width:85%"></div></div><span class="tsk-level" style="color:var(--purple)">85%</span></div>
     <div class="tsk"><span class="tsk-name">Blender</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fy" style="--w:95%;width:95%"></div></div><span class="tsk-level" style="color:var(--yellow)">95%</span></div>
     <div class="tsk"><span class="tsk-name">Gravity Sketch</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fp" style="--w:82%;width:82%"></div></div><span class="tsk-level" style="color:var(--purple)">82%</span></div>
     <div class="tsk"><span class="tsk-name">Vizcom AI</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill ft" style="--w:80%;width:80%"></div></div><span class="tsk-level" style="color:var(--teal)">80%</span></div>
@@ -1344,6 +1348,11 @@ footer{
     <div class="tsk"><span class="tsk-name">Futures Design</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fp" style="--w:78%;width:78%"></div></div><span class="tsk-level" style="color:var(--purple)">78%</span></div>
     <div class="tsk"><span class="tsk-name">Human–Robot UX</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill ft" style="--w:62%;width:62%"></div></div><span class="tsk-level" style="color:var(--teal)">62%</span></div>
     <div class="tsk"><span class="tsk-name">Design Philosophy</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill ft" style="--w:68%;width:68%"></div></div><span class="tsk-level" style="color:var(--teal)">68%</span></div>
+    <div class="tsk"><span class="tsk-name">Substance Designer</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fp" style="--w:88%;width:88%"></div></div><span class="tsk-level" style="color:var(--purple)">88%</span></div>
+    <div class="tsk"><span class="tsk-name">Substance Painter</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fp" style="--w:85%;width:85%"></div></div><span class="tsk-level" style="color:var(--purple)">85%</span></div>
+    <div class="tsk"><span class="tsk-name">PBR Materials</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fy" style="--w:92%;width:92%"></div></div><span class="tsk-level" style="color:var(--yellow)">92%</span></div>
+    <div class="tsk"><span class="tsk-name">CMF Strategy</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fy" style="--w:88%;width:88%"></div></div><span class="tsk-level" style="color:var(--yellow)">88%</span></div>
+    <div class="tsk"><span class="tsk-name">Material Scanning</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fp" style="--w:85%;width:85%"></div></div><span class="tsk-level" style="color:var(--purple)">85%</span></div>
     <div class="tsk"><span class="tsk-name">Blender</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fy" style="--w:95%;width:95%"></div></div><span class="tsk-level" style="color:var(--yellow)">95%</span></div>
     <div class="tsk"><span class="tsk-name">Gravity Sketch</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill fp" style="--w:82%;width:82%"></div></div><span class="tsk-level" style="color:var(--purple)">82%</span></div>
     <div class="tsk"><span class="tsk-name">Vizcom AI</span><div class="tsk-bar-wrap"><div class="tsk-bar-fill ft" style="--w:80%;width:80%"></div></div><span class="tsk-level" style="color:var(--teal)">80%</span></div>
@@ -1365,10 +1374,10 @@ footer{
     <div class="s-code">// About</div>
     <h2 class="s-h">MULTI-<br>DISC-<br>IPLINARY</h2>
     <div class="about-body">
-      <p>I'm a designer whose work spans <strong>automotive form, transport futures, and human-centred UX</strong> — built on an MA in Automotive &amp; Transport Design from Coventry University, a BSc in Visual Communication from Apadana University, and an architecture foundation that shapes how I think about space and proportion.</p>
-      <p>My <strong>Blender expertise</strong> is deep enough that I build custom add-ons — tools that improve workflow speed, precision, and control in ways no off-the-shelf plugin does. I combine that with <strong>Gravity Sketch, Autodesk Alias, Vizcom, Twinmotion, and AI-assisted pipelines</strong> to go from concept to photorealistic render faster than most studios expect.</p>
-      <p>Research is the foundation of everything I make. The HOPE WAV project started with interviews with disabled users. HY-ENA started with Moroccan architecture and the Sahara. The Ford E-Courier 2040 started with urbanisation data and crime pattern analysis. <strong>Every surface has a reason.</strong></p>
-      <p>I'm Iranian, based in Coventry UK, with a brother in Sweden and strong ties to Scandinavian design culture. I'm <strong>actively pursuing design roles</strong> in Sweden and internationally.</p>
+      <p>I'm a <strong>CMF Designer and Material Artist</strong> with 3+ years of professional experience creating physically accurate, production-ready 3D materials — and an MA in Automotive &amp; Transport Design from Coventry University that grounds every material decision in vehicle design thinking.</p>
+      <p>My material pipeline spans <strong>Substance 3D Designer, Substance Painter, V-Ray, and Blender PBR</strong> — including material scanning, calibration, and validating digital materials against physical samples to achieve production-accurate output. I built and maintained commercial material libraries sold to design studios and delivered bespoke material solutions to architecture clients including Iravanian Architecting Group.</p>
+      <p>CMF strategy is where research meets surface. For <strong>HOPE WAV</strong> (sponsored by Vital Auto) every finish was chosen to communicate safety and emotional reassurance. For <strong>HY-ENA</strong> (HPL collaboration) colour and material direction came from Moroccan architectural research and Saharan landscape. <strong>Every surface has a reason.</strong></p>
+      <p>I'm Iranian, based in Coventry UK, actively pursuing <strong>CMF, Material Art, and Automotive Design roles</strong> internationally. I bring both the hands-on material production skills and the automotive design understanding to bridge studio and technical pipelines.</p>
       <p style="color:var(--muted);font-size:9px;">Outside work: Interstellar, Tolkien, Linkin Park, Uncharted, and instrumental music as ScriptThorix.</p>
     </div>
   </div>
@@ -1377,6 +1386,8 @@ footer{
     <div class="s-code" style="margin-top:0">// Skills matrix</div>
     <div class="sk-grid" style="margin-top:20px">
       <div class="sk-row"><div class="sk-top"><span class="sk-name">Blender (incl. custom add-on dev)</span><span class="sk-lv">Expert</span></div><div class="sk-track"><div class="sk-fill fy" data-w="95"></div></div></div>
+      <div class="sk-row"><div class="sk-top"><span class="sk-name">Substance 3D Painter</span><span class="sk-lv">Expert</span></div><div class="sk-track"><div class="sk-fill fp" data-w="95"></div></div></div>
+      <div class="sk-row"><div class="sk-top"><span class="sk-name">Substance 3D Designer</span><span class="sk-lv">Expert</span></div><div class="sk-track"><div class="sk-fill fp" data-w="95"></div></div></div>
       <div class="sk-row"><div class="sk-top"><span class="sk-name">Gravity Sketch</span><span class="sk-lv">Advanced</span></div><div class="sk-track"><div class="sk-fill fp" data-w="82"></div></div></div>
       <div class="sk-row"><div class="sk-top"><span class="sk-name">Vizcom (AI-assisted rendering)</span><span class="sk-lv">Advanced</span></div><div class="sk-track"><div class="sk-fill ft" data-w="80"></div></div></div>
       <div class="sk-row"><div class="sk-top"><span class="sk-name">Autodesk Alias</span><span class="sk-lv">Proficient</span></div><div class="sk-track"><div class="sk-fill fy" data-w="68"></div></div></div>
@@ -1396,11 +1407,12 @@ footer{
 
     <div class="cert-grid">
       <div class="s-code" style="margin-top:28px;margin-bottom:0">// Certifications</div>
+      <div class="cert-row">Google UX Design Certificate<span>Google</span></div>
       <div class="cert-row">UX for AI: Design Practices for AI Developers<span>LinkedIn</span></div>
       <div class="cert-row">Empathy in UX Design<span>LinkedIn</span></div>
       <div class="cert-row">Evil by Design: Persuasion in UX<span>LinkedIn</span></div>
-      <div class="cert-row">Prompt Engineering with ChatGPT<span>LinkedIn</span></div>
-      <div class="cert-row">Intro to Prompt Engineering for Generative AI<span>LinkedIn</span></div>
+      <div class="cert-row">Prompt Engineering for Generative AI<span>LinkedIn</span></div>
+      <div class="cert-row">Rapid Prototyping<span>LinkedIn</span></div>
     </div>
   </div>
 </div>
@@ -1420,7 +1432,7 @@ footer{
     <div class="c-row">Location<span>Coventry, UK</span></div>
     <div class="c-row">Experience<span>6+ years design</span></div>
     <div class="c-row">Availability<span>Open to opportunities</span></div>
-    <div class="c-row">Disciplines<span>Automotive / Transport / UX</span></div>
+    <div class="c-row">Disciplines<span>CMF / Material Art / Automotive</span></div>
     <div class="c-row">Education<span>MA Coventry University</span></div>
     <div class="c-row">Languages<span>English / Persian</span></div>
   </div>
@@ -1429,7 +1441,7 @@ footer{
 <footer>
   <div class="footer-left">
     <span>© 2025 <span class="fa">T.NEJABAT</span></span>
-    <span style="color:var(--muted);font-size:7px">MA Automotive &amp; Transport Design — Coventry University</span>
+    <span style="color:var(--muted);font-size:7px">CMF Designer · Material Artist · MA Automotive &amp; Transport Design</span>
   </div>
   <div class="footer-center">
     <a href="mailto:nejabatt@coventry.ac.uk" class="footer-link">Email</a>
