@@ -516,6 +516,32 @@ footer a:hover{color:var(--yl);}
 .m-ct{font-family:var(--tech);font-size:10px;color:var(--tx2);letter-spacing:.16em;}
 .m-ct b{color:var(--yl);font-weight:400;}
 
+
+/* ═══ SESSION END CAP ═══ */
+.endcap{border-top:1px solid var(--bd);background:#020107;padding:26px 20px 22px;
+  display:flex;flex-direction:column;align-items:center;gap:16px;position:relative;}
+.endcap::before{content:'+';position:absolute;top:-8px;left:8px;font-family:var(--tech);
+  font-size:14px;color:rgba(232,224,0,.55);line-height:1;}
+.end-stats{display:flex;gap:0;flex-wrap:wrap;justify-content:center;}
+.end-stats span{font-family:var(--tech);font-size:9.5px;letter-spacing:.16em;
+  color:var(--mut);text-transform:uppercase;padding:0 16px;
+  border-right:1px solid var(--bd);}
+.end-stats span:last-child{border-right:none;}
+.end-stats b{color:var(--tx2);font-weight:400;}
+.end-line{font-family:var(--tech);font-size:clamp(10px,1.4vw,13px);letter-spacing:.2em;
+  color:var(--tx2);text-transform:uppercase;text-align:center;line-height:2;}
+.end-line b{color:var(--tx);font-weight:700;}
+.end-line .reason{color:var(--yl);}
+.relaunch{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;
+  background:transparent;color:var(--yl);border:1px solid rgba(232,224,0,.4);
+  font-family:var(--tech);font-size:9.5px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;cursor:pointer;transition:all .2s;will-change:transform;}
+.relaunch:hover{background:var(--yl);color:#000;}
+.pressg{font-family:var(--tech);font-size:9.5px;letter-spacing:.2em;color:var(--mut);
+  cursor:pointer;transition:color .2s;text-transform:uppercase;user-select:none;}
+.pressg:hover{color:var(--yl);animation:pgFlick .5s steps(2) infinite;}
+@keyframes pgFlick{50%{opacity:.4;}}
+
 /* ═══ REVEAL ═══ */
 .rv{opacity:0;transform:translateY(30px);filter:blur(5px);
   transition:opacity .9s var(--easeOut),transform .9s var(--easeOut),filter .9s var(--easeOut);}
@@ -834,14 +860,14 @@ footer a:hover{color:var(--yl);}
 <!-- ═══ PROFILE ═══ -->
 <div class="sh" id="profile">
   <div class="sh-idx">03</div>
-  <div class="sh-t" data-scramble>RUNNER <span class="yl">PROFILE</span></div>
+  <div class="sh-t" data-scramble>PRO<span class="yl">FILE</span></div>
   <div class="sh-rule"></div>
   <div class="sh-c">designer · builder · inventor</div>
 </div>
 <section class="prof">
   <div class="prof-l">
     <div class="dossier rv">
-      <div class="dos-head"><span>// PERSONNEL FILE</span><span>CLR-A1</span></div>
+      <div class="dos-head"><span>// DESIGNER FILE</span><span>REF-A1</span></div>
       <div class="dos-name">TAHA NEJABAT</div>
       <div class="dos-role">3D Designer · Visualisation Artist · CMF Specialist</div>
       <div class="dos-stats">
@@ -852,7 +878,6 @@ footer a:hover{color:var(--yl);}
       </div>
       <div class="dos-rows">
         <div class="dos-row">Location<b>Coventry, United Kingdom</b></div>
-        <div class="dos-row">Origin<b>Shiraz, Iran</b></div>
         <div class="dos-row">Status<b style="color:var(--tl)">◈ Open to opportunities</b></div>
         <div class="dos-row">Languages<b>English / Farsi</b></div>
         <div class="dos-row">Alias<b>ScriptThorix (music)</b></div>
@@ -893,13 +918,13 @@ footer a:hover{color:var(--yl);}
     <div class="s-code">// Skills matrix</div>
     <div class="skills">
       <div class="sk rv" data-lv="19" data-c="y"><span class="sk-n">Blender · Custom Add-ons</span><span class="sk-segs"></span><span class="sk-lv">Expert</span></div>
-      <div class="sk rv" data-lv="19" data-c="p"><span class="sk-n">Substance 3D Painter</span><span class="sk-segs"></span><span class="sk-lv">Expert</span></div>
-      <div class="sk rv" data-lv="18" data-c="p"><span class="sk-n">Substance 3D Designer</span><span class="sk-segs"></span><span class="sk-lv">Expert</span></div>
+      <div class="sk rv" data-lv="19" data-c="p"><span class="sk-n">Gravity Sketch VR</span><span class="sk-segs"></span><span class="sk-lv">Expert</span></div>
+      <div class="sk rv" data-lv="18" data-c="p"><span class="sk-n">Substance 3D · Designer + Painter</span><span class="sk-segs"></span><span class="sk-lv">Expert</span></div>
       <div class="sk rv" data-lv="17" data-c="y"><span class="sk-n">PBR Material Development</span><span class="sk-segs"></span><span class="sk-lv">Expert</span></div>
       <div class="sk rv" data-lv="17" data-c="y"><span class="sk-n">V-Ray</span><span class="sk-segs"></span><span class="sk-lv">Advanced</span></div>
-      <div class="sk rv" data-lv="16" data-c="p"><span class="sk-n">Gravity Sketch VR</span><span class="sk-segs"></span><span class="sk-lv">Advanced</span></div>
+      <div class="sk rv" data-lv="17" data-c="y"><span class="sk-n">Autodesk Alias</span><span class="sk-segs"></span><span class="sk-lv">Advanced</span></div>
       <div class="sk rv" data-lv="16" data-c="t"><span class="sk-n">Vizcom · AI Workflows</span><span class="sk-segs"></span><span class="sk-lv">Advanced</span></div>
-      <div class="sk rv" data-lv="14" data-c="y"><span class="sk-n">Autodesk Alias</span><span class="sk-segs"></span><span class="sk-lv">Proficient</span></div>
+      <div class="sk rv" data-lv="16" data-c="t"><span class="sk-n">Twinmotion</span><span class="sk-segs"></span><span class="sk-lv">Advanced</span></div>
       <div class="sk rv" data-lv="13" data-c="t"><span class="sk-n">Rhino 3D · AutoCAD</span><span class="sk-segs"></span><span class="sk-lv">Proficient</span></div>
       <div class="sk rv" data-lv="13" data-c="p"><span class="sk-n">Python · C++ Add-on Dev</span><span class="sk-segs"></span><span class="sk-lv">Proficient</span></div>
       <div class="sk rv" data-lv="12" data-c="y"><span class="sk-n">Clay Modelling</span><span class="sk-segs"></span><span class="sk-lv">Proficient</span></div>
@@ -945,13 +970,25 @@ footer a:hover{color:var(--yl);}
 
 </main>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- ═══ SESSION END ═══ -->
+<div class="endcap">
+  <div class="end-stats">
+    <span>POLYCOUNT: <b>2.4M</b></span>
+    <span>SAMPLES: <b>4096</b></span>
+    <span>DENOISER: <b>ON</b></span>
+    <span>RENDER TIME: <b>5+ YEARS</b></span>
+    <span>ENGINE: <b>HUMAN</b></span>
+  </div>
+  <div class="end-line">SESSION END — RENDERED BY <b>T.NEJABAT</b> — <span class="reason">ALL SURFACES MUST HAVE A REASON</span></div>
+  <button class="relaunch" onclick="relaunch()">◈ Relaunch Sequence</button>
+</div>
 <footer>
   <span>© 2026 <b style="color:var(--yl)">T.NEJABAT</b> — Portfolio OS v6.0</span>
   <div class="foot-bar" aria-hidden="true">
     <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
   </div>
-  <span><a href="mailto:tnejabtt@gmail.com">Email</a> &nbsp;|&nbsp; <a href="https://github.com/TahaNejabat/tahanejabatportfolio/raw/main/Taha_Nejabat_CV.pdf" target="_blank">CV</a> &nbsp;|&nbsp; Built with Marathon design language</span>
+  <span class="pressg" onclick="glitchNow()">[ PRESS G ]</span>
+  <span><a href="mailto:tnejabtt@gmail.com">Email</a> &nbsp;|&nbsp; <a href="https://github.com/TahaNejabat/tahanejabatportfolio/raw/main/Taha_Nejabat_CV.pdf" target="_blank">CV</a></span>
 </footer>
 
 <!-- ═══ MODAL ═══ -->
@@ -1378,6 +1415,19 @@ document.querySelectorAll('[data-split]').forEach(el=>{
   ['work','education','profile','contact'].forEach(id=>{
     const el=document.getElementById(id);if(el)io.observe(el);});
 })();
+
+
+/* ── RELAUNCH + GLITCH TRIGGER ── */
+function relaunch(){
+  scrollTo({top:0,behavior:'smooth'});
+  const n=document.getElementById('hero-name');
+  if(n){n.classList.remove('on');
+    setTimeout(()=>{void n.offsetWidth;n.classList.add('on');},650);}
+}
+function glitchNow(){
+  document.body.classList.add('glitching');
+  setTimeout(()=>document.body.classList.remove('glitching'),520);
+}
 
 /* ── MODAL ── */
 let mIdx=0;
