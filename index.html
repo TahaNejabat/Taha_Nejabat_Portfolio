@@ -3,8 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Taha Nejabat — 3D Designer, Visualisation Artist & CMF Specialist. MA Automotive & Transport Design, Coventry University.">
-<title>TAHA NEJABAT — 3D DESIGNER / VISUALISATION ARTIST</title>
+<title>Taha Nejabat — Automotive Designer & 3D Visualisation Artist</title>
+<meta name="description" content="Portfolio of Taha Nejabat — Automotive Designer, 3D Designer and Visualisation Artist. 5+ years creating production-ready 3D materials and automotive renders in Blender, Substance 3D, V-Ray and Autodesk Alias. MA Automotive & Transport Design, Coventry University. Projects with Vital Auto, HPL and Nissan Europe.">
+<meta name="author" content="Taha Nejabat">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://tahanejabat.work/">
+<meta name="theme-color" content="#06040e">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tahanejabat.work/">
+<meta property="og:title" content="Taha Nejabat — 3D Designer & Visualisation Artist">
+<meta property="og:description" content="Automotive Designer, 3D Designer and Visualisation Artist. Blender, Substance 3D, V-Ray, Autodesk Alias. MA Automotive & Transport Design — Coventry University.">
+<meta property="og:image" content="https://framerusercontent.com/images/w07Z8NuDSQDlXOBUzumLwc8BK4.jpg">
+<meta property="og:image:alt" content="Volvo P1800 Reforge — EV concept designed and rendered by Taha Nejabat">
+<meta property="og:site_name" content="Taha Nejabat Portfolio">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Taha Nejabat — 3D Designer & Visualisation Artist">
+<meta name="twitter:description" content="Automotive Designer, 3D Designer and Visualisation Artist. Blender, Substance 3D, V-Ray, Autodesk Alias.">
+<meta name="twitter:image" content="https://framerusercontent.com/images/w07Z8NuDSQDlXOBUzumLwc8BK4.jpg">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Person",
+      "@id":"https://tahanejabat.work/#person",
+      "name":"Taha Nejabat",
+      "url":"https://tahanejabat.work/",
+      "email":"mailto:tnejabtt@gmail.com",
+      "jobTitle":"Automotive Designer, 3D Designer & Visualisation Artist",
+      "description":"3D Designer and Visualisation Artist with 5+ years of professional experience in PBR material development, automotive rendering and CMF strategy.",
+      "knowsAbout":["3D Design","Blender","Substance 3D","V-Ray","Autodesk Alias","Gravity Sketch","CMF Design","PBR Materials","Automotive Design","3D Visualisation"],
+      "alumniOf":[
+        {"@type":"CollegeOrUniversity","name":"Coventry University","sameAs":"https://www.coventry.ac.uk/"},
+        {"@type":"CollegeOrUniversity","name":"Apadana University"},
+        {"@type":"CollegeOrUniversity","name":"Hafez University"}
+      ],
+      "homeLocation":{"@type":"Place","name":"Coventry, United Kingdom"}
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://tahanejabat.work/#website",
+      "url":"https://tahanejabat.work/",
+      "name":"Taha Nejabat — Portfolio",
+      "publisher":{"@id":"https://tahanejabat.work/#person"}
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -61,18 +112,40 @@ body.glitching{animation:bodyGlitch .5s steps(3) 1;}
   padding:clamp(20px,4vw,48px);
   transition:clip-path .9s var(--easeHard);
   clip-path:inset(0 0 0 0);
+  overflow:hidden;
 }
+/* scanning grid backdrop */
+#pre::before{content:'';position:absolute;inset:-50%;pointer-events:none;
+  background-image:linear-gradient(rgba(232,224,0,.055) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(232,224,0,.055) 1px,transparent 1px);
+  background-size:44px 44px;
+  animation:preGrid 9s linear infinite;}
+@keyframes preGrid{from{transform:translate(0,0);}to{transform:translate(44px,44px);}}
+/* sweeping scan bar */
+#pre::after{content:'';position:absolute;left:0;right:0;height:120px;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,rgba(232,224,0,.06),rgba(155,0,255,.05),transparent);
+  animation:preScan 2.6s cubic-bezier(.5,0,.5,1) infinite;}
+@keyframes preScan{0%{top:-120px;}100%{top:100%;}}
 #pre.done{clip-path:inset(0 0 100% 0);}
 #pre.gone{display:none;}
-.pre-top{display:flex;justify-content:space-between;font-family:var(--tech);font-size:10px;letter-spacing:.2em;color:var(--mut);text-transform:uppercase;}
+.pre-top{display:flex;justify-content:space-between;font-family:var(--tech);font-size:10px;letter-spacing:.2em;color:var(--mut);text-transform:uppercase;position:relative;z-index:1;}
 .pre-top .yl{color:var(--yl);}
-.pre-log{font-family:var(--tech);font-size:10px;line-height:2;color:rgba(122,112,147,.7);letter-spacing:.06em;max-width:520px;}
+.pre-log{font-family:var(--tech);font-size:10px;line-height:2;color:rgba(122,112,147,.7);letter-spacing:.06em;max-width:520px;position:relative;z-index:1;}
 .pre-log .ok{color:var(--yl);}
-.pre-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;}
+.pre-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;position:relative;z-index:1;}
 #pre-pct{
   font-family:var(--disp);
   font-size:clamp(110px,22vw,300px);
   line-height:.8;color:var(--tx);letter-spacing:-.01em;
+  position:relative;z-index:1;
+  text-shadow:0 0 40px rgba(232,224,0,.18);
+  animation:pctFlick 3.4s steps(1) infinite;
+}
+@keyframes pctFlick{
+  0%,93%,100%{text-shadow:0 0 40px rgba(232,224,0,.18);}
+  94%{text-shadow:-3px 0 var(--rd),3px 0 var(--pu),0 0 40px rgba(232,224,0,.3);}
+  95.5%{text-shadow:2px 0 var(--tl),-2px 0 var(--pu),0 0 40px rgba(232,224,0,.18);}
+  97%{text-shadow:0 0 40px rgba(232,224,0,.18);}
 }
 #pre-pct .sym{font-size:.32em;color:var(--yl);vertical-align:top;}
 .pre-bar{position:absolute;bottom:0;left:0;height:3px;background:linear-gradient(to right,var(--pu),var(--yl));width:0%;box-shadow:0 0 14px rgba(232,224,0,.6);}
@@ -193,6 +266,12 @@ main{padding-top:70px;}
 .hero-disc{font-family:var(--tech);font-size:11px;color:var(--tx2);
   letter-spacing:.1em;text-transform:uppercase;margin-bottom:34px;}
 .hero-disc span{color:var(--yl);padding:0 4px;}
+.hero-type{font-size:12px;letter-spacing:.08em;text-transform:none;color:var(--tx2);
+  display:flex;align-items:center;gap:2px;min-height:1.4em;}
+.hero-type .prompt{color:var(--yl);padding:0;}
+.hero-type #typed{color:var(--tx);padding:0;}
+.hero-type .caret{display:inline-block;width:8px;height:1em;background:var(--yl);
+  padding:0;animation:blink 1s step-end infinite;}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
 
 /* ═══ BUTTONS ═══ */
@@ -209,18 +288,50 @@ main{padding-top:70px;}
 .btn-o{background:transparent;color:var(--tx2);border:1px solid var(--bd2);}
 .btn-o:hover{color:var(--yl);border-color:var(--yl);}
 
-/* ═══ MEGA MARQUEE ═══ */
-.mq{height:clamp(62px,11vw,152px);overflow:hidden;background:#020107;
+/* ═══ SIGNAL STRIP — telemetry divider ═══ */
+.sig{height:clamp(38px,4.5vw,50px);background:#020107;position:relative;
   border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
-  display:flex;align-items:center;position:relative;}
-.mq-t{display:flex;white-space:nowrap;animation:mq 40s linear infinite;will-change:transform;}
-.mq-t.rev{animation-direction:reverse;animation-duration:34s;}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.mq-i{font-family:var(--disp);font-size:clamp(52px,10vw,142px);line-height:1;
-  color:transparent;-webkit-text-stroke:1.5px rgba(232,224,0,.3);
-  padding:0 34px;letter-spacing:.02em;display:flex;align-items:center;gap:34px;}
-.mq-i .fl{color:rgba(155,0,255,.55);-webkit-text-stroke:0;}
-.mq-i .d{font-size:.3em;color:var(--yl);-webkit-text-stroke:0;}
+  display:flex;align-items:center;overflow:hidden;padding:0 clamp(16px,3vw,44px);
+  gap:clamp(12px,2.2vw,28px);isolation:isolate;}
+.sig::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.2) 2px 3px);
+  mix-blend-mode:multiply;}
+/* light sweep — thin bright beam crossing the strip on a loop */
+.sig-sweep{position:absolute;top:0;bottom:0;width:1px;z-index:1;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,var(--yl),var(--pu),transparent);
+  filter:blur(.5px);opacity:.5;
+  animation:sigSweep 5.5s cubic-bezier(.6,0,.4,1) infinite;}
+@keyframes sigSweep{0%{left:-2%;opacity:0;}6%{opacity:.5;}50%{left:102%;opacity:.5;}56%{opacity:0;}100%{left:102%;opacity:0;}}
+.sig-cnr{position:absolute;width:11px;height:11px;pointer-events:none;z-index:2;}
+.sig-cnr.tl{top:5px;left:5px;border-top:1px solid rgba(232,224,0,.5);border-left:1px solid rgba(232,224,0,.5);}
+.sig-cnr.br{bottom:5px;right:5px;border-bottom:1px solid rgba(232,224,0,.5);border-right:1px solid rgba(232,224,0,.5);}
+
+.sig-lbl{font-family:var(--tech);font-size:9px;letter-spacing:.18em;color:var(--yl);
+  text-transform:uppercase;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:6px;}
+.sig-lbl b{width:5px;height:5px;background:var(--yl);flex-shrink:0;animation:blink 1.3s step-end infinite;}
+
+.sig-mid{flex:1;overflow:hidden;position:relative;height:100%;}
+.sig-mid-track{display:flex;white-space:nowrap;align-items:center;height:100%;
+  animation:sigScroll 5s linear infinite;will-change:transform;}
+@keyframes sigScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.sig-mid-item{font-family:var(--tech);font-size:9.5px;letter-spacing:.1em;
+  color:var(--tx2);text-transform:uppercase;padding:0 30px;flex-shrink:0;}
+.sig-mid .fl{color:var(--yl);}
+.sig-mid .d{color:var(--pu2);padding:0 6px;}
+.sig-mid.c-p .fl{color:var(--pu2);}
+.sig-mid.c-p .d{color:var(--yl);}
+.sig-mid.c-t .fl{color:var(--tl);}
+.sig-mid.c-t .d{color:var(--yl);}
+
+/* scan wave line */
+.sig-wave{flex-shrink:0;width:clamp(60px,10vw,120px);height:18px;position:relative;overflow:hidden;}
+.sig-wave svg{width:200%;height:100%;animation:waveMove 3.2s linear infinite;}
+@keyframes waveMove{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+.sig-code{font-family:var(--tech);font-size:8.5px;letter-spacing:.1em;color:var(--mut);
+  white-space:nowrap;flex-shrink:0;}
+.sig-code b{color:var(--tl);font-weight:400;}
+
 
 /* ═══ SECTION HEADERS ═══ */
 .sh{max-width:1700px;margin:0 auto;position:relative;
@@ -261,9 +372,7 @@ main{padding-top:70px;}
 .fc-img img{width:100%;height:100%;object-fit:cover;
   filter:brightness(.68) contrast(1.22) saturate(1.05);
   transition:filter .5s,transform .8s var(--easeOut);}
-.fc:hover .fc-img img{filter:brightness(.96) contrast(1.1) saturate(1.15);transform:scale(1.05);
-  animation:imgJit .3s steps(2) 1;}
-@keyframes imgJit{0%{translate:0 0}33%{translate:-4px 2px}66%{translate:3px -2px}100%{translate:0 0}}
+.fc:hover .fc-img img{filter:brightness(.96) contrast(1.1) saturate(1.15);transform:scale(1.05);}
 /* TV effect */
 .fc-img::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
   background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.16) 2px 3px);
@@ -281,7 +390,19 @@ main{padding-top:70px;}
   pointer-events:none;letter-spacing:-.03em;z-index:1;transition:color .3s;}
 .fc:hover .fc-num{color:rgba(232,224,0,.11);}
 .fc-top{padding:16px 20px 10px;display:flex;justify-content:space-between;z-index:4;position:relative;}
-.fc-code{font-size:10px;letter-spacing:.2em;color:var(--tx2);text-transform:uppercase;font-family:var(--tech);}
+.fc-code{font-size:10px;letter-spacing:.2em;color:var(--tx2);text-transform:uppercase;font-family:var(--tech);position:relative;transition:color .2s,text-shadow .2s;}
+/* GLITCH CODE on hover — RGB split + glow */
+.fc:hover .fc-code{color:var(--yl);text-shadow:0 0 8px rgba(232,224,0,.6);
+  animation:codeGlitch .5s steps(2) infinite;}
+.fc-code::before,.fc-code::after{content:attr(data-text);position:absolute;top:0;left:0;
+  opacity:0;pointer-events:none;transition:opacity .2s;}
+.fc:hover .fc-code::before{opacity:.9;color:var(--rd);animation:glOff1 .42s steps(2) infinite;}
+.fc:hover .fc-code::after{opacity:.9;color:var(--tl);animation:glOff2 .38s steps(2) infinite;}
+@keyframes codeGlitch{0%,100%{transform:translate(0,0);}50%{transform:translate(-.5px,0);}}
+@keyframes glOff1{0%,100%{transform:translate(0,0);clip-path:inset(0 0 60% 0);}
+  50%{transform:translate(-2px,-1px);clip-path:inset(40% 0 0 0);}}
+@keyframes glOff2{0%,100%{transform:translate(0,0);clip-path:inset(50% 0 0 0);}
+  50%{transform:translate(2px,1px);clip-path:inset(0 0 55% 0);}}
 .fc-yr{color:var(--yl);font-family:var(--tech);font-size:10px;letter-spacing:.15em;}
 .fc-bot{padding:18px 22px 24px;position:relative;z-index:4;}
 .fc-1 .fc-bot{position:absolute;bottom:0;left:0;width:min(64%,680px);}
@@ -325,7 +446,12 @@ main{padding-top:70px;}
 .row::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
   background:var(--yl);transform:scaleY(0);transition:transform .3s var(--easeHard);}
 .row:hover::after{transform:scaleY(1);}
-.row-code{font-family:var(--tech);font-size:11px;color:var(--yl);letter-spacing:.15em;}
+.row-code{font-family:var(--tech);font-size:11px;color:var(--yl);letter-spacing:.15em;position:relative;transition:text-shadow .2s;}
+.row:hover .row-code{text-shadow:0 0 8px rgba(232,224,0,.6);animation:codeGlitch .5s steps(2) infinite;}
+.row-code::before,.row-code::after{content:attr(data-text);position:absolute;top:0;left:0;
+  opacity:0;pointer-events:none;transition:opacity .2s;}
+.row:hover .row-code::before{opacity:.9;color:var(--rd);animation:glOff1 .42s steps(2) infinite;}
+.row:hover .row-code::after{opacity:.9;color:var(--pu2);animation:glOff2 .38s steps(2) infinite;}
 .row-title{font-family:var(--disp);font-size:clamp(24px,3.2vw,44px);line-height:.92;
   letter-spacing:.015em;color:var(--tx);text-transform:uppercase;transition:color .25s,transform .35s var(--easeOut);}
 .row:hover .row-title{color:var(--yl);transform:translateX(14px);}
@@ -580,6 +706,10 @@ footer a:hover{color:var(--yl);}
   .sk-lv{text-align:left;}
 }
 @media(max-width:700px){
+  .sig{padding:0 14px;gap:12px;}
+  .sig-wave{display:none;}
+  .sig-mid{font-size:9.5px;}
+  .sig-code{display:none;}
   .sh{flex-wrap:wrap;align-items:center;gap:12px;padding:24px 16px 16px;}
   .sh-t{font-size:clamp(32px,10vw,48px);width:100%;order:2;}
   .sh-idx{order:1;margin-bottom:0;}
@@ -601,7 +731,7 @@ footer a:hover{color:var(--yl);}
 /* reduced motion respect */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important;}
-  .mq-t{animation:none;}
+  .sig-mid-track,.sig-wave svg,.sig-sweep{animation:none;}
   html{scroll-behavior:auto;}
 }
 </style>
@@ -695,7 +825,7 @@ footer a:hover{color:var(--yl);}
     <span>COVENTRY — UK</span>
   </div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">3D Designer <span class="tag2">·</span> Visualisation Artist <span class="tag2">·</span> CMF Specialist</div>
+    <div class="hero-eyebrow">Automotive Designer <span class="tag2">·</span> 3D Designer <span class="tag2">·</span> Visualisation Artist</div>
     <h1 class="hero-name" id="hero-name">
       <span class="ln l1" data-split>TAHA</span>
       <span class="ln l2" data-split>NEJABAT</span>
@@ -705,7 +835,7 @@ footer a:hover{color:var(--yl);}
       <div class="deg"><b class="p">BSc</b>Visual Communication — Apadana University, 2020–2023</div>
       <div class="deg"><b class="t">AAD</b>Architecture — Hafez University, Shiraz, 2017–2019</div>
     </div>
-    <div class="hero-disc">3D Design<span>/</span>Visualisation<span>/</span>CMF<span>/</span>Automotive<span>/</span>Transport<span>/</span>UX</div>
+    <div class="hero-disc hero-type"><span class="prompt">&gt;</span> <span id="typed"></span><span class="caret"></span></div>
     <div class="hero-cta">
       <a href="#work" class="btn btn-y"><span>View Work ↓</span></a>
       <a href="https://github.com/TahaNejabat/tahanejabatportfolio/raw/main/Taha_Nejabat_CV.pdf" target="_blank" class="btn btn-o">Download CV</a>
@@ -713,12 +843,21 @@ footer a:hover{color:var(--yl);}
   </div>
 </section>
 
-<!-- ═══ MEGA MARQUEE 1 ═══ -->
-<div class="mq" aria-hidden="true">
-  <div class="mq-t">
-    <div class="mq-i">MULTIDISCIPLINARY <span class="d">◆</span> <span class="fl">DESIGNER</span> <span class="d">◆</span> 3D VISUALISATION <span class="d">◆</span> CMF <span class="d">◆</span></div>
-    <div class="mq-i">MULTIDISCIPLINARY <span class="d">◆</span> <span class="fl">DESIGNER</span> <span class="d">◆</span> 3D VISUALISATION <span class="d">◆</span> CMF <span class="d">◆</span></div>
+<!-- ═══ SIGNAL STRIP 1 ═══ -->
+<div class="sig" aria-hidden="true">
+  <div class="sig-cnr tl"></div><div class="sig-cnr br"></div>
+  <div class="sig-sweep"></div>
+  <div class="sig-lbl"><b></b>Tools</div>
+  <div class="sig-mid"><div class="sig-mid-track">
+    <span class="sig-mid-item"><span class="fl">Blender</span> span class="d">◆</span> Substance 3D Designer <span class="d">◆</span> Substance Painter <span class="d">◆</span> V-Ray <span class="d">◆</span> VRED <span class="d">◆</span> Twinmotion <span class="d">◆</span> Rhino 3D <span class="d">◆</span> Autodesk Alias <span class="d">◆</span> Gravity Sketch <span class="d">◆</span> Marvelous Designer <span class="d">◆</span> AutoCAD <span class="d">◆</span> Figma <span class="d">◆</span> Vizcom <span class="d">◆</span> Adobe Photoshop <span class="d">◆</span> Lightroom <span class="d">◆</span> Premiere Pro <span class="d">◆</span> Animate <span class="d">◆</span> Illustrator <span class="d">◆</span> Python <span class="d">◆</span> C++ <span class="d">◆</span> Cursor <span class="d">◆</span> Unreal Engine 5 <span class="d">◆</span> 3ds Max</span>
+    <span class="sig-mid-item"><span class="fl">Blender</span> span class="d">◆</span> Substance 3D Designer <span class="d">◆</span> Substance Painter <span class="d">◆</span> V-Ray <span class="d">◆</span> VRED <span class="d">◆</span> Twinmotion <span class="d">◆</span> Rhino 3D <span class="d">◆</span> Autodesk Alias <span class="d">◆</span> Gravity Sketch <span class="d">◆</span> Marvelous Designer <span class="d">◆</span> AutoCAD <span class="d">◆</span> Figma <span class="d">◆</span> Vizcom <span class="d">◆</span> Adobe Photoshop <span class="d">◆</span> Lightroom <span class="d">◆</span> Premiere Pro <span class="d">◆</span> Animate <span class="d">◆</span> Illustrator <span class="d">◆</span> Python <span class="d">◆</span> C++ <span class="d">◆</span> Cursor <span class="d">◆</span> Unreal Engine 5 <span class="d">◆</span> 3ds Max</span>
+  </div></div>
+  <div class="sig-wave">
+    <svg viewBox="0 0 200 26" preserveAspectRatio="none">
+      <path d="M0 13 L10 13 L14 4 L18 22 L22 13 L34 13 L38 6 L42 20 L46 13 L60 13 L64 2 L68 24 L72 13 L100 13 L110 13 L114 4 L118 22 L122 13 L134 13 L138 6 L142 20 L146 13 L160 13 L164 2 L168 24 L172 13 L200 13" fill="none" stroke="#e8e000" stroke-width="1.4"/>
+    </svg>
   </div>
+  <div class="sig-code">REV <b>6.0</b></div>
 </div>
 
 <!-- ═══ SELECTED WORK ═══ -->
@@ -736,7 +875,7 @@ footer a:hover{color:var(--yl);}
       <div class="phb"></div>
       <div class="fc-num">01</div>
       <div class="fc-img"><img src="https://framerusercontent.com/images/w07Z8NuDSQDlXOBUzumLwc8BK4.jpg" loading="lazy" alt="Volvo P1800 Reforge"><div class="fc-ov"></div></div>
-      <div class="fc-top"><span class="fc-code">S—01 / FEATURED</span><span class="fc-yr">2024</span></div>
+      <div class="fc-top"><span class="fc-code" data-text="S—01 / FEATURED">S—01 / FEATURED</span><span class="fc-yr">2024</span></div>
       <div class="fc-bot">
         <div class="fc-title">VOLVO P1800 REFORGE</div>
         <div class="fc-desc">Retro-futuristic EV reimagination. Nordic rune symbolism, Thor's hammer motif — strength and cultural identity through sculptural surfaces. Designed and rendered in Blender.</div>
@@ -749,7 +888,7 @@ footer a:hover{color:var(--yl);}
       <div class="phb"></div>
       <div class="fc-num">02</div>
       <div class="fc-img"><img src="https://framerusercontent.com/images/4xdDdiedrzqFmkNsTeIZUn0.png" loading="lazy" alt="Ford E-Courier"><div class="fc-ov"></div></div>
-      <div class="fc-top"><span class="fc-code">S—02</span><span class="fc-yr">2024</span></div>
+      <div class="fc-top"><span class="fc-code" data-text="S—02">S—02</span><span class="fc-yr">2024</span></div>
       <div class="fc-bot">
         <div class="fc-title">FORD E-COURIER 2040</div>
         <div class="fc-desc">Cyberpunk LCV drone mothership for mega-city last-mile delivery. Roof dispatch bay, convoy form.</div>
@@ -762,7 +901,7 @@ footer a:hover{color:var(--yl);}
       <div class="phb"></div>
       <div class="fc-num">03</div>
       <div class="fc-img"><img src="https://framerusercontent.com/images/3PXkm1SLiUVG7TXw4UZeBn9LDY.png" loading="lazy" alt="HOPE WAV"><div class="fc-ov"></div></div>
-      <div class="fc-top"><span class="fc-code">S—05</span><span class="fc-yr">2024</span></div>
+      <div class="fc-top"><span class="fc-code" data-text="S—05">S—05</span><span class="fc-yr">2024</span></div>
       <div class="fc-bot">
         <div class="fc-title">HOPE — WAV</div>
         <div class="fc-desc">Inclusive EV where the wheelchair becomes the seat. Sponsored by Vital Auto. Alias + Blender.</div>
@@ -776,54 +915,63 @@ footer a:hover{color:var(--yl);}
   <div class="idx">
     <div class="idx-head"><span>Preview</span><span>ID</span><span>Project</span><span>Category</span><span style="text-align:right">Year</span></div>
     <div class="row rv" data-prev="https://framerusercontent.com/images/UrBAp7peiPbi4ixANV38uIkHLw.png" onclick="openModal(2)">
-      <span class="row-th"><img src="https://framerusercontent.com/images/UrBAp7peiPbi4ixANV38uIkHLw.png" loading="lazy" alt=""></span>
-      <span class="row-code">S—03</span><span class="row-title">GROCERY NAV APP</span>
+      <span class="row-th"><img src="https://framerusercontent.com/images/UrBAp7peiPbi4ixANV38uIkHLw.png" loading="lazy" alt="Grocery Navigation App — UX design concept by Taha Nejabat"></span>
+      <span class="row-code" data-text="S—03">S—03</span><span class="row-title">GROCERY NAV APP</span>
       <span class="row-cat">UX Design</span><span class="row-yr">2025</span><span class="row-arrow">→</span>
     </div>
     <div class="row rv" data-prev="https://framerusercontent.com/images/Lifg4qTdKa4weKOSCeIH5Vxsys8.jpg" onclick="openModal(3)">
-      <span class="row-th"><img src="https://framerusercontent.com/images/Lifg4qTdKa4weKOSCeIH5Vxsys8.jpg" loading="lazy" alt=""></span>
-      <span class="row-code">S—04</span><span class="row-title">NISSAN × GRAVITY SKETCH</span>
+      <span class="row-th"><img src="https://framerusercontent.com/images/Lifg4qTdKa4weKOSCeIH5Vxsys8.jpg" loading="lazy" alt="Nissan x Gravity Sketch car-truck crossover VR concept"></span>
+      <span class="row-code" data-text="S—04">S—04</span><span class="row-title">NISSAN × GRAVITY SKETCH</span>
       <span class="row-cat">Automotive · VR</span><span class="row-yr">2024</span><span class="row-arrow">→</span>
     </div>
     <div class="row rv" data-prev="https://framerusercontent.com/images/2QiKbyYgpjL4mpKrz98DPZJK8.png" onclick="openModal(5)">
-      <span class="row-th"><img src="https://framerusercontent.com/images/2QiKbyYgpjL4mpKrz98DPZJK8.png" loading="lazy" alt=""></span>
-      <span class="row-code">S—06</span><span class="row-title">HY-ENA PROJECT</span>
+      <span class="row-th"><img src="https://framerusercontent.com/images/2QiKbyYgpjL4mpKrz98DPZJK8.png" loading="lazy" alt="HY-ENA vehicle concept — HPL industry collaboration"></span>
+      <span class="row-code" data-text="S—06">S—06</span><span class="row-title">HY-ENA PROJECT</span>
       <span class="row-cat">Automotive · CMF</span><span class="row-yr">2024</span><span class="row-arrow">→</span>
     </div>
     <div class="row rv" data-prev="https://framerusercontent.com/images/QNF5iPfQnCvp8ae2jdHwk2Q3BM.png" onclick="openModal(6)">
-      <span class="row-th"><img src="https://framerusercontent.com/images/QNF5iPfQnCvp8ae2jdHwk2Q3BM.png" loading="lazy" alt=""></span>
-      <span class="row-code">S—07</span><span class="row-title">FOLDABLE TRAVEL DRONE</span>
+      <span class="row-th"><img src="https://framerusercontent.com/images/QNF5iPfQnCvp8ae2jdHwk2Q3BM.png" loading="lazy" alt="Foldable travel drone product design in Blender"></span>
+      <span class="row-code" data-text="S—07">S—07</span><span class="row-title">FOLDABLE TRAVEL DRONE</span>
       <span class="row-cat">Product Design</span><span class="row-yr">2023</span><span class="row-arrow">→</span>
     </div>
     <div class="row rv" data-prev="https://framerusercontent.com/images/EWfA60DVA4OqL7v16ulWhk9tAiQ.png" onclick="openModal(7)">
-      <span class="row-th"><img src="https://framerusercontent.com/images/EWfA60DVA4OqL7v16ulWhk9tAiQ.png" loading="lazy" alt=""></span>
-      <span class="row-code">S—08</span><span class="row-title">NIGHT FURY SPACE PLANE</span>
+      <span class="row-th"><img src="https://framerusercontent.com/images/EWfA60DVA4OqL7v16ulWhk9tAiQ.png" loading="lazy" alt="Night Fury space plane 3D concept"></span>
+      <span class="row-code" data-text="S—08">S—08</span><span class="row-title">NIGHT FURY SPACE PLANE</span>
       <span class="row-cat">3D Concept</span><span class="row-yr">2022</span><span class="row-arrow">→</span>
     </div>
     <div class="row rv" data-prev="https://framerusercontent.com/images/p06i4Ngk8zcIQZeweYFcCKfPvgI.png" onclick="openModal(8)">
-      <span class="row-th"><img src="https://framerusercontent.com/images/p06i4Ngk8zcIQZeweYFcCKfPvgI.png" loading="lazy" alt=""></span>
-      <span class="row-code">S—09</span><span class="row-title">FORD REBRANDING</span>
+      <span class="row-th"><img src="https://framerusercontent.com/images/p06i4Ngk8zcIQZeweYFcCKfPvgI.png" loading="lazy" alt="Ford rebranding visual identity design"></span>
+      <span class="row-code" data-text="S—09">S—09</span><span class="row-title">FORD REBRANDING</span>
       <span class="row-cat">Visual Identity</span><span class="row-yr">2022</span><span class="row-arrow">→</span>
     </div>
     <div class="row rv" data-prev="https://framerusercontent.com/images/fgpQEO4XuFqXeKouVUuGlFisjc.png" onclick="openModal(9)">
-      <span class="row-th"><img src="https://framerusercontent.com/images/fgpQEO4XuFqXeKouVUuGlFisjc.png" loading="lazy" alt=""></span>
-      <span class="row-code">S—10</span><span class="row-title">VIZCOM AI IDEATION</span>
+      <span class="row-th"><img src="https://framerusercontent.com/images/fgpQEO4XuFqXeKouVUuGlFisjc.png" loading="lazy" alt="Vizcom AI-assisted vehicle ideation"></span>
+      <span class="row-code" data-text="S—10">S—10</span><span class="row-title">VIZCOM AI IDEATION</span>
       <span class="row-cat">AI-Assisted Design</span><span class="row-yr">2025</span><span class="row-arrow">→</span>
     </div>
     <div class="row rv" data-prev="https://framerusercontent.com/images/Wc02ftUjW6dqwY3hPubMqdRE8s.jpg" onclick="openModal(10)">
-      <span class="row-th"><img src="https://framerusercontent.com/images/Wc02ftUjW6dqwY3hPubMqdRE8s.jpg" loading="lazy" alt=""></span>
-      <span class="row-code">S—11</span><span class="row-title">KITTY E-BIKE</span>
+      <span class="row-th"><img src="https://framerusercontent.com/images/Wc02ftUjW6dqwY3hPubMqdRE8s.jpg" loading="lazy" alt="Kitty e-bike designed in Rhino 3D and V-Ray"></span>
+      <span class="row-code" data-text="S—11">S—11</span><span class="row-title">KITTY E-BIKE</span>
       <span class="row-cat">Product Design</span><span class="row-yr">2022</span><span class="row-arrow">→</span>
     </div>
   </div>
 </section>
 
-<!-- ═══ MEGA MARQUEE 2 ═══ -->
-<div class="mq" aria-hidden="true">
-  <div class="mq-t rev">
-    <div class="mq-i">BLENDER <span class="d">◆</span> <span class="fl">SUBSTANCE 3D</span> <span class="d">◆</span> ALIAS <span class="d">◆</span> V-RAY <span class="d">◆</span> GRAVITY SKETCH <span class="d">◆</span></div>
-    <div class="mq-i">BLENDER <span class="d">◆</span> <span class="fl">SUBSTANCE 3D</span> <span class="d">◆</span> ALIAS <span class="d">◆</span> V-RAY <span class="d">◆</span> GRAVITY SKETCH <span class="d">◆</span></div>
+<!-- ═══ SIGNAL STRIP 2 ═══ -->
+<div class="sig" aria-hidden="true">
+  <div class="sig-cnr tl"></div><div class="sig-cnr br"></div>
+  <div class="sig-sweep" style="animation-delay:1.8s"></div>
+  <div class="sig-lbl"><b></b>Tools</div>
+  <div class="sig-mid c-p"><div class="sig-mid-track" style="animation-duration:22s">
+    <span class="sig-mid-item"><span class="fl">Blender</span> <span class="d">◆</span> Substance 3D Designer <span class="d">◆</span> Substance Painter <span class="d">◆</span> V-Ray <span class="d">◆</span> VRED <span class="d">◆</span> Twinmotion <span class="d">◆</span> Rhino 3D <span class="d">◆</span> Autodesk Alias <span class="d">◆</span> Gravity Sketch <span class="d">◆</span> Marvelous Designer <span class="d">◆</span> AutoCAD <span class="d">◆</span> Figma <span class="d">◆</span> Vizcom <span class="d">◆</span> Adobe Photoshop <span class="d">◆</span> Lightroom <span class="d">◆</span> Premiere Pro <span class="d">◆</span> Animate <span class="d">◆</span> Illustrator <span class="d">◆</span> Python <span class="d">◆</span> C++ <span class="d">◆</span> Cursor <span class="d">◆</span> Unreal Engine 5 <span class="d">◆</span> 3ds Max</span>
+    <span class="sig-mid-item"><span class="fl">Blender</span> <span class="d">◆</span> Substance 3D Designer <span class="d">◆</span> Substance Painter <span class="d">◆</span> V-Ray <span class="d">◆</span> VRED <span class="d">◆</span> Twinmotion <span class="d">◆</span> Rhino 3D <span class="d">◆</span> Autodesk Alias <span class="d">◆</span> Gravity Sketch <span class="d">◆</span> Marvelous Designer <span class="d">◆</span> AutoCAD <span class="d">◆</span> Figma <span class="d">◆</span> Vizcom <span class="d">◆</span> Adobe Photoshop <span class="d">◆</span> Lightroom <span class="d">◆</span> Premiere Pro <span class="d">◆</span> Animate <span class="d">◆</span> Illustrator <span class="d">◆</span> Python <span class="d">◆</span> C++ <span class="d">◆</span> Cursor <span class="d">◆</span> Unreal Engine 5 <span class="d">◆</span> 3ds Max</span>
+  </div></div>
+  <div class="sig-wave">
+    <svg viewBox="0 0 200 26" preserveAspectRatio="none">
+      <path d="M0 13 L14 13 L18 22 L22 4 L26 13 L40 13 L44 20 L48 6 L52 13 L66 13 L70 24 L74 2 L78 13 L100 13 L114 13 L118 22 L122 4 L126 13 L140 13 L144 20 L148 6 L152 13 L166 13 L170 24 L174 2 L178 13 L200 13" fill="none" stroke="#9b00ff" stroke-width="1.4"/>
+    </svg>
   </div>
+  <div class="sig-code">STATUS <b>READY</b></div>
 </div>
 
 <!-- ═══ EDUCATION ═══ -->
@@ -869,7 +1017,7 @@ footer a:hover{color:var(--yl);}
     <div class="dossier rv">
       <div class="dos-head"><span>// DESIGNER FILE</span><span>REF-A1</span></div>
       <div class="dos-name">TAHA NEJABAT</div>
-      <div class="dos-role">3D Designer · Visualisation Artist · CMF Specialist</div>
+      <div class="dos-role">Automotive Designer · 3D Designer · Visualisation Artist</div>
       <div class="dos-stats">
         <div class="dstat"><div class="dstat-v" data-count="5" data-suffix="+">0</div><div class="dstat-l">Years professional experience</div></div>
         <div class="dstat"><div class="dstat-v" data-count="11" data-suffix="">0</div><div class="dstat-l">Design projects</div></div>
@@ -884,7 +1032,6 @@ footer a:hover{color:var(--yl);}
       </div>
     </div>
     <div class="s-code">// Certifications</div>
-    <div class="cert rv">Teaching Assistant — Apadana University<span>2022</span></div>
     <div class="cert rv">Google UX Design Certificate<span>Google</span></div>
     <div class="cert rv">UX for AI: Design Practices<span>LinkedIn</span></div>
     <div class="cert rv">Empathy in UX Design<span>LinkedIn</span></div>
@@ -892,7 +1039,7 @@ footer a:hover{color:var(--yl);}
     <div class="cert rv">Rapid Prototyping<span>LinkedIn</span></div>
   </div>
   <div class="prof-r">
-    <p class="prof-p rv">I'm a <strong>3D Designer, Visualisation Artist, and CMF Specialist</strong> with over 5 years of professional experience creating physically accurate, production-ready 3D materials and automotive renders — grounded by an MA in Automotive &amp; Transport Design from Coventry University.</p>
+    <p class="prof-p rv">I'm an <strong>Automotive Designer, 3D Designer, and Visualisation Artist</strong> with over 5 years of professional experience creating physically accurate, production-ready 3D materials and automotive renders — grounded by an MA in Automotive &amp; Transport Design from Coventry University.</p>
     <p class="prof-p rv">My pipeline spans <strong>Blender (expert, custom Python add-ons), Substance 3D Designer, Substance Painter, V-Ray and VRED</strong> — including material scanning, calibration, and validating digital materials against physical samples. I built commercial material libraries sold to studios globally and delivered bespoke solutions to clients including <span class="pp">Iravanian Architecting Group</span>.</p>
     <p class="prof-p rv">Research drives every surface. <strong>HOPE WAV</strong> (Vital Auto) began with interviews with disabled users. <strong>HY-ENA</strong> (HPL) began with Moroccan architecture and Saharan landscape. <strong>Every surface has a reason.</strong></p>
 
@@ -912,6 +1059,11 @@ footer a:hover{color:var(--yl);}
         <div class="xp-t"><span class="xp-role">DESIGNER</span><span class="xp-yr">2021–2024</span></div>
         <div class="xp-org">NerdLaboratory — Remote, Iran</div>
         <div class="xp-d">3D visualisations with strong material realism. Custom Blender add-ons: Taha's Sticker and Workflow Optimizer (Python).</div>
+      </div>
+      <div class="xp-item rv">
+        <div class="xp-t"><span class="xp-role">TEACHING ASSISTANT</span><span class="xp-yr">2022</span></div>
+        <div class="xp-org">Apadana University — Shiraz, Iran</div>
+        <div class="xp-d">Supported visual communication and design fundamentals coursework, mentoring students in composition, colour theory and studio practice.</div>
       </div>
     </div>
 
@@ -933,12 +1085,21 @@ footer a:hover{color:var(--yl);}
   </div>
 </section>
 
-<!-- ═══ MEGA MARQUEE 3 ═══ -->
-<div class="mq" aria-hidden="true">
-  <div class="mq-t">
-    <div class="mq-i"><span class="fl">LET'S CREATE</span> <span class="d">◆</span> OPEN TO WORK <span class="d">◆</span> UK / EU / REMOTE <span class="d">◆</span></div>
-    <div class="mq-i"><span class="fl">LET'S CREATE</span> <span class="d">◆</span> OPEN TO WORK <span class="d">◆</span> UK / EU / REMOTE <span class="d">◆</span></div>
+<!-- ═══ SIGNAL STRIP 3 ═══ -->
+<div class="sig" aria-hidden="true">
+  <div class="sig-cnr tl"></div><div class="sig-cnr br"></div>
+  <div class="sig-sweep" style="animation-delay:3.6s"></div>
+  <div class="sig-lbl"><b></b>Tools</div>
+  <div class="sig-mid c-t"><div class="sig-mid-track" style="animation-duration:22s;animation-direction:reverse">
+    <span class="sig-mid-item"><span class="fl">Blender</span> span class="d">◆</span> Substance 3D Designer <span class="d">◆</span> Substance Painter <span class="d">◆</span> V-Ray <span class="d">◆</span> VRED <span class="d">◆</span> Twinmotion <span class="d">◆</span> Rhino 3D <span class="d">◆</span> Autodesk Alias <span class="d">◆</span> Gravity Sketch <span class="d">◆</span> Marvelous Designer <span class="d">◆</span> AutoCAD <span class="d">◆</span> Figma <span class="d">◆</span> Vizcom <span class="d">◆</span> Adobe Photoshop <span class="d">◆</span> Lightroom <span class="d">◆</span> Premiere Pro <span class="d">◆</span> Animate <span class="d">◆</span> Illustrator <span class="d">◆</span> Python <span class="d">◆</span> C++ <span class="d">◆</span> Cursor <span class="d">◆</span> Unreal Engine 5 <span class="d">◆</span> 3ds Max</span>
+    <span class="sig-mid-item"><span class="fl">Blender</span> span class="d">◆</span> Substance 3D Designer <span class="d">◆</span> Substance Painter <span class="d">◆</span> V-Ray <span class="d">◆</span> VRED <span class="d">◆</span> Twinmotion <span class="d">◆</span> Rhino 3D <span class="d">◆</span> Autodesk Alias <span class="d">◆</span> Gravity Sketch <span class="d">◆</span> Marvelous Designer <span class="d">◆</span> AutoCAD <span class="d">◆</span> Figma <span class="d">◆</span> Vizcom <span class="d">◆</span> Adobe Photoshop <span class="d">◆</span> Lightroom <span class="d">◆</span> Premiere Pro <span class="d">◆</span> Animate <span class="d">◆</span> Illustrator <span class="d">◆</span> Python <span class="d">◆</span> C++ <span class="d">◆</span> Cursor <span class="d">◆</span> Unreal Engine 5 <span class="d">◆</span> 3ds Max</span>
+  </div></div>
+  <div class="sig-wave">
+    <svg viewBox="0 0 200 26" preserveAspectRatio="none">
+      <path d="M0 13 L20 13 L24 6 L28 20 L32 13 L50 13 L54 4 L58 22 L62 13 L100 13 L120 13 L124 6 L128 20 L132 13 L150 13 L154 4 L158 22 L162 13 L200 13" fill="none" stroke="#00c8a0" stroke-width="1.4"/>
+    </svg>
   </div>
+  <div class="sig-code">AVAIL <b>YES</b></div>
 </div>
 
 <!-- ═══ CONTACT ═══ -->
@@ -1090,8 +1251,6 @@ const P=[
     {t:'img',s:'https://framerusercontent.com/images/pErn2IlxcksQKLzPlGTiENGQh4.jpg'},
     {t:'img',s:'https://framerusercontent.com/images/poQoA1R3KqpnhZ7gOC3Jq6jQL4Q.jpg'},
     {t:'img',s:'https://framerusercontent.com/images/4HSwZV9AulIn6CzNzsoUZnOHc.jpg'},
-    {t:'img',s:'https://framerusercontent.com/images/18i1gZKmA9Efk6kT21IJFLeT6s.png'},
-    {t:'img',s:'https://framerusercontent.com/images/C6nrSS9DboeVht3RAt7pcOWHZ78.png'},
   ]},
   {code:'S—06',year:'2024',cat:'Automotive Design',title:'HY-ENA PROJECT',
    desc:'Developed in collaboration with HPL at Coventry University for a brief to design an affordable vehicle for Morocco. Inspired by the hyena\'s stance and the wave-like lines of the Sahara, featuring a sustainable cooling system influenced by Moroccan architecture. Designed in Autodesk Alias with focus on surface quality, proportion, and CMF strategy.',
@@ -1186,12 +1345,13 @@ const FINE = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
   const bar=document.getElementById('pre-bar');
   const log=document.getElementById('pre-log');
   const lines=[
-    '> INIT PORTFOLIO OS v6.0 ................ <span class="ok">OK</span>',
+    '> MOUNTING /dev/nejabat ................. <span class="ok">OK</span>',
     '> LOADING DESIGN MATRIX ................. <span class="ok">OK</span>',
     '> BLENDER · SUBSTANCE · ALIAS · V-RAY ... <span class="ok">OK</span>',
     '> 11 PROJECTS INDEXED ................... <span class="ok">OK</span>',
     '> MA AUTOMOTIVE — COVENTRY UNIVERSITY ... <span class="ok">OK</span>',
-    '> SIGNAL LOCKED <span class="ok">◈</span> WELCOME'
+    '> CALIBRATING SURFACES ................. <span class="ok">OK</span>',
+    '> <span class="ok">◈</span> ALL SURFACES MUST HAVE A REASON'
   ];
   let p=0, li=0;
   const t=setInterval(()=>{
@@ -1207,6 +1367,30 @@ const FINE = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
     const want=Math.floor((p/100)*lines.length);
     while(li<want&&li<lines.length){log.innerHTML+=lines[li]+'<br>';li++;}
   },REDUCED?30:120);
+})();
+
+/* ── HERO TYPEWRITER ── */
+(function(){
+  const el=document.getElementById('typed');
+  if(!el)return;
+  const lines=[
+    'I design vehicles that people actually want to touch.',
+    'Every surface has a reason.',
+    'Blender expert. I build my own tools.',
+    'MA Automotive & Transport Design — Coventry University.',
+    'HOPE WAV started with interviews. HY-ENA started with the Sahara.',
+    'Open to opportunities. Let\u2019s build something.'
+  ];
+  if(REDUCED){el.textContent=lines[0];return;}
+  let li=0,ci=0,del=false;
+  (function tick(){
+    const cur=lines[li];
+    el.textContent = del ? cur.slice(0,ci--) : cur.slice(0,ci++);
+    let wait = del ? 22 : 42;
+    if(!del && ci>cur.length){ del=true; wait=2200; }
+    else if(del && ci<0){ del=false; li=(li+1)%lines.length; ci=0; wait=380; }
+    setTimeout(tick,wait);
+  })();
 })();
 
 /* ── SPLIT CHARS ── */
