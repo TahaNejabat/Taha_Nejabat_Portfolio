@@ -1,0 +1,132 @@
+name: Localize Framer media
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  localize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+          pip install -q pillow
+
+      - name: Download, compress, watermark and rewrite links
+        run: |
+          python3 - <<'PY'
+          import os, re, json, pathlib, subprocess, urllib.request
+          from PIL import Image, ImageDraw, ImageFont, ImageOps
+
+          SITE = "https://tahanejabat.work"
+          WATERMARK = "T/NEJABAT"
+          MAX_W = 1920
+          root = pathlib.Path(".").resolve()
+          media = root / "media"
+          media.mkdir(exist_ok=True)
+          tmp = pathlib.Path("/tmp/originals")
+          tmp.mkdir(exist_ok=True)
+
+          # Watermark font: Bebas Neue (your site font), fallback DejaVu
+          FONT = "/tmp/wm.ttf"
+          try:
+              urllib.request.urlretrieve("https://raw.githubusercontent.com/google/fonts/main/ofl/bebasneue/BebasNeue-Regular.ttf", FONT)
+          except Exception:
+              FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+
+          def fetch(url, dest):
+              req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+              with urllib.request.urlopen(req, timeout=300) as r:
+                  dest.write_bytes(r.read())
+
+          def do_image(src, stem):
+              im = ImageOps.exif_transpose(Image.open(src))
+              alpha = im.mode in ("RGBA", "LA") or (im.mode == "P" and "transparency" in im.info)
+              im = im.convert("RGBA")
+              if im.width > MAX_W:
+                  im = im.resize((MAX_W, round(im.height * MAX_W / im.width)), Image.LANCZOS)
+              layer = Image.new("RGBA", im.size, (0, 0, 0, 0))
+              d = ImageDraw.Draw(layer)
+              font = ImageFont.truetype(FONT, max(16, int(im.width * 0.03)))
+              b = d.textbbox((0, 0), WATERMARK, font=font)
+              m = int(im.width * 0.02)
+              x, y = im.width - m - b[2], im.height - m - b[3]
+              d.text((x + 2, y + 2), WATERMARK, font=font, fill=(0, 0, 0, 60))
+              d.text((x, y), WATERMARK, font=font, fill=(255, 255, 255, 100))
+              im = Image.alpha_composite(im, layer)
+              if alpha:
+                  out = media / f"{stem}.webp"
+                  im.save(out, "WEBP", quality=82, method=6)
+              else:
+                  out = media / f"{stem}.jpg"
+                  im.convert("RGB").save(out, "JPEG", quality=84, optimize=True, progressive=True)
+              return out
+
+          def do_video(src, stem):
+              out = media / f"{stem}.mp4"
+              vf = (f"scale='min({MAX_W},iw)':-2,"
+                    f"drawtext=fontfile={FONT}:text='{WATERMARK}':fontcolor=white@0.4:"
+                    f"fontsize=h*0.045:shadowcolor=black@0.3:shadowx=2:shadowy=2:x=w-tw-w*0.02:y=h-th-w*0.02")
+              subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf", vf,
+                              "-c:v", "libx264", "-crf", "26", "-preset", "slow", "-pix_fmt", "yuv420p",
+                              "-an", "-movflags", "+faststart", str(out)], check=True)
+              return out
+
+          def existing(stem):
+              for ext in (".jpg", ".webp", ".mp4"):
+                  p = media / f"{stem}{ext}"
+                  if p.exists():
+                      return p
+
+          pat = re.compile(r"https://framerusercontent\.com/(?:images|assets)/[A-Za-z0-9_-]+\.[A-Za-z0-9]+")
+          html_files = [p for p in root.rglob("*.html") if ".git" not in p.parts]
+          urls = set()
+          for f in html_files:
+              urls.update(pat.findall(f.read_text(encoding="utf-8")))
+          print(f"Found {len(urls)} Framer files")
+
+          done = {}
+          for u in sorted(urls):
+              name = u.rsplit("/", 1)[1]
+              stem, ext = os.path.splitext(name)
+              out = existing(stem)
+              if not out:
+                  try:
+                      src = tmp / name
+                      fetch(u, src)
+                      out = do_video(src, stem) if ext.lower() in (".mp4", ".mov", ".webm") else do_image(src, stem)
+                  except Exception as e:
+                      print(f"FAILED {u}: {e}")
+                      continue
+              size = out.stat().st_size / 1e6
+              if size > 95:
+                  print(f"SKIPPED {name}: {size:.0f} MB, over GitHub's 100 MB limit")
+                  out.unlink()
+                  continue
+              print(f"OK {out.name} ({size:.2f} MB)")
+              done[u] = out
+
+          for f in html_files:
+              text = f.read_text(encoding="utf-8")
+              for u, out in done.items():
+                  text = text.replace(f'content="{u}"', f'content="{SITE}/media/{out.name}"')
+                  rel = os.path.relpath(out, f.parent).replace(os.sep, "/")
+                  text = text.replace(u, rel)
+              f.write_text(text, encoding="utf-8")
+
+          print(f"Done: {len(done)}/{len(urls)} files now hosted in /media (compressed + watermarked)")
+          PY
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898583+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Host compressed, watermarked media locally"
+          git push
